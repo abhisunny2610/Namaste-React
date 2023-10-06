@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaste React</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+
+        // const root = document.getElementById("root");
+
+        // const heading = document.createElement("h1");
+
+        // heading.innerHTML = "This heading made by javascript code.";
+
+        // root.appendChild(heading)
+
+        const heading1 = React.createElement("h2", {
+            "id": "heading1"
+        }, "This heading1 made by react.")
+
+        const heading2 = React.createElement('h2', {
+            "id": "heading2"
+        }, "This is heading 2 made by react.")
+
+        // now we render both heading by creating container
+
+        const container = React.createElement("div", {
+            "id" : "container"
+        }, [heading1, heading2])
+
+        // createElement take 3 arguments 1. tag 2. object 3. what we put inside tag
+
+        const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+
+        reactRoot.render(container)
+
+    </script>
+</body>
+
+</html>
