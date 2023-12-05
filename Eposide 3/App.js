@@ -17,6 +17,11 @@ const heading2 = (
     </h2> 
 )
 
+// component
+const Header = () => {
+    return <h1>This is function component.</h1>
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(name)  
