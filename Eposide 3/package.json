@@ -1,0 +1,14 @@
+{
+  "name": "eposide-3",
+  "version": "1.0.0",
+  "description": "This is eposide 3",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Abhishek",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+}
