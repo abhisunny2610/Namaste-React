@@ -2,13 +2,21 @@
   "name": "eposide-3",
   "version": "1.0.0",
   "description": "This is eposide 3",
-  "main": "App.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Abhishek",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.10.3"
+    "@babel/core": "^7.23.5",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
