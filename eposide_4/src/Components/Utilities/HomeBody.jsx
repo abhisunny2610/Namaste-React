@@ -1,5 +1,5 @@
 import React from 'react'
-import foodimg from '../Images/foodimage.jpg'
+// import foodimg from '../Images/foodimage.jpg'
 
 // RestaurantList is JSON Data for displaying cards
 const restaurantList = [
@@ -1820,20 +1820,27 @@ const restaurantList = [
   },
 ];
 
-const RestrauntCard = () => {
+const RestaurantCard = ({ restaurant }) => {
+
+  const {cuisines ,name, cloudinaryImageId, avgRating, address, deliveryTime } = restaurant.data
+
   return <div className="rest-card">
-    <img src={foodimg} alt="" />
-    <h3 className='name'>Subway</h3>
-    <p className='rating'>3.8</p>
-    <p className='time'>30 mins</p>
-    <p className="category">Bakery</p>
+    <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="" />
+    <h3 className='name'>{name}</h3>
+    <p className='rating'>{avgRating} . {deliveryTime} mins</p>
+    <p className="c">{cuisines.join(", ")}</p>
+    <p className="category">{address}</p>
   </div>
 }
 
 
 const HomeBody = () => {
-  return <div className='home-body'> 
-    <RestrauntCard />
+  return <div className='home-body'>
+    {
+      restaurantList.map((restaurant, index) => {
+        return <RestaurantCard restaurant={restaurant} key={restaurant.data.id}/>
+      })
+    }
   </div>
 }
 
