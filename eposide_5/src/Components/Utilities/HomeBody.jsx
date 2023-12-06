@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IMAGE_CDN } from '../config';
 import { restaurantList } from '../config';
 // import foodimg from '../Images/foodimage.jpg'
@@ -20,9 +20,21 @@ const RestaurantCard = ({ restaurant }) => {
   </div>
 }
 
+const SearchBar = () => {
+
+  const [searchInput, setSearchInput] = useState("")
+  const [seachBtn, setSearchBtn] = useState(false)
+
+  return <div className='search'>
+    <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
+    <button className='search-btn' onChange={() => setSearchBtn(true)}>Search</button>
+  </div>
+}
+
 
 const HomeBody = () => {
   return <div className='home-body'>
+    <SearchBar />
     <div className="cards">
       {
         restaurantList.map((restaurant, index) => {

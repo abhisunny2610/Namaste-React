@@ -6,6 +6,7 @@
 
 :root{
     --black-color: rgb(58, 58, 58);
+    --orange: #ffa700;
 }
 
 .header{
@@ -84,6 +85,40 @@
     gap: 25px;
     flex-wrap: wrap;
     /* flex-wrap: nowrap; */
+}
+
+.search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        
+    > .search-input{
+        width: calc(100% - 20%);
+        height: 3rem;
+        /* border-radius: 5px; */
+        padding: 10px;
+        font-size: 16px;
+        margin: 20px 0px;
+        
+    }
+
+    > button{
+        width: fit-content;
+        height: 3rem;
+        padding: 0px 10px;
+        font-size: 16px;
+        background-color: var(--orange);
+        border: none;
+        outline: none;
+        border-radius: 5px;
+    }
+
+    >  button:active{
+        /* background-color: #bb7900; */
+        box-shadow: 2px 2px 2px #bb7900;
+        transform: translateX(2px);
+    }
 }
 
 .home-body{
