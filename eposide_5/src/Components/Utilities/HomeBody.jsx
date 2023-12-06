@@ -1822,25 +1822,29 @@ const restaurantList = [
 
 const RestaurantCard = ({ restaurant }) => {
 
-  const {cuisines ,name, cloudinaryImageId, avgRating, address, deliveryTime } = restaurant.data
+  const { cuisines, name, cloudinaryImageId, avgRating, address, deliveryTime } = restaurant.data
 
   return <div className="rest-card">
-    <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="" />
-    <h3 className='name'>{name}</h3>
-    <p className='rating'>{avgRating} . {deliveryTime} mins</p>
-    <p className="c">{cuisines.join(", ")}</p>
-    <p className="category">{address}</p>
+    <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="restaurant-image" />
+    <div className="content">
+      <h3 className='name'>{name}</h3>
+      <p className='rating'>{avgRating} . {deliveryTime} mins</p>
+      <p className="cuisines">{cuisines.join(", ")}</p>
+      <p className="category">{address}</p>
+    </div>
   </div>
 }
 
 
 const HomeBody = () => {
   return <div className='home-body'>
-    {
-      restaurantList.map((restaurant, index) => {
-        return <RestaurantCard restaurant={restaurant} key={restaurant.data.id}/>
-      })
-    }
+    <div className="cards">
+      {
+        restaurantList.map((restaurant, index) => {
+          return <RestaurantCard restaurant={restaurant} key={restaurant.data.id} />
+        })
+      }
+    </div>
   </div>
 }
 
