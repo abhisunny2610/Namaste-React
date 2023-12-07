@@ -8,7 +8,7 @@ import { swiggy_api_URL } from '../config';
 
 function filterData(searchText, filterList) {
   
-  const filterData = filterList.filter((restaurant) => restaurant.data.name.includes(searchText))
+  const filterData = filterList.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase()))
 
   return filterData
 }
@@ -33,7 +33,9 @@ const RestaurantCard = ({ restaurant }) => {
 const HomeBody = () => {
 
   const [searchInput, setSearchInput] = useState("")
+  const [allRest, setAllRest] = useState([])
   const [filterRest, setFilterRest] = useState([])
+
 
   async function fetchAPI(){
     const response = await fetch(swiggy_api_URL)
@@ -41,6 +43,7 @@ const HomeBody = () => {
     // console.log("Json", json)
     const data = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setFilterRest(data)
+    setAllRest(data)
   }
   // console.log("filterlist",filterRest)
 
@@ -53,7 +56,7 @@ const HomeBody = () => {
     <div className='search'>
       <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
       <button className='search-btn' onClick={() => {
-        const data = filterData(searchInput, filterRest)
+        const data = filterData(searchInput, allRest)
         setFilterRest(data)
       }}>Search</button>
     </div>
