@@ -5,6 +5,14 @@ import { restaurantList } from '../config';
 
 // RestaurantList is JSON Data for displaying cards
 
+function filterData(searchText, filterList) {
+  
+  const filterData = filterList.filter((restaurant) => restaurant.data.name.includes(searchText))
+
+  return filterData
+}
+
+
 const RestaurantCard = ({ restaurant }) => {
 
   const { cuisines, name, cloudinaryImageId, avgRating, address, deliveryTime } = restaurant.data
@@ -20,28 +28,30 @@ const RestaurantCard = ({ restaurant }) => {
   </div>
 }
 
-const SearchBar = () => {
+const HomeBody = () => {
 
   const [searchInput, setSearchInput] = useState("")
-  const [seachBtn, setSearchBtn] = useState(false)
+  // const [seachBtn, setSearchBtn] = useState(false)
+  const [filterRest, setFilterRest] = useState(restaurantList)
 
-  return <div className='search'>
-    <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
-    <button className='search-btn' onChange={() => setSearchBtn(true)}>Search</button>
-  </div>
-}
-
-
-const HomeBody = () => {
   return <div className='home-body'>
-    <SearchBar />
+
+    <div className='search'>
+      <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
+      <button className='search-btn' onClick={() => {
+        const data = filterData(searchInput, filterRest)
+        setFilterRest(data)
+      }}>Search</button>
+    </div>
+
     <div className="cards">
       {
-        restaurantList.map((restaurant, index) => {
+        filterRest.map((restaurant, index) => {
           return <RestaurantCard restaurant={restaurant} key={restaurant.data.id} />
         })
       }
     </div>
+
   </div>
 }
 
