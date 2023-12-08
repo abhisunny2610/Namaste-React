@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { IMAGE_CDN } from '../config';
-import { restaurantList } from '../config';
 import { swiggy_api_URL } from '../config';
+import Shimmer from './Shimmer';
+
+// import { restaurantList } from '../config';
 // import foodimg from '../Images/foodimage.jpg'
 
-// RestaurantList is JSON Data for displaying cards
-
 function filterData(searchText, filterList) {
-  
+
   const filterData = filterList.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase()))
 
   return filterData
@@ -35,9 +35,9 @@ const HomeBody = () => {
   const [searchInput, setSearchInput] = useState("")
   const [allRest, setAllRest] = useState([])
   const [filterRest, setFilterRest] = useState([])
+  const [errorMessage, setErrorMessage] = useState("")
 
-
-  async function fetchAPI(){
+  async function fetchAPI() {
     const response = await fetch(swiggy_api_URL)
     const json = await response.json();
     // console.log("Json", json)
@@ -47,28 +47,46 @@ const HomeBody = () => {
   }
   // console.log("filterlist",filterRest)
 
-  useEffect(()=> {
-      fetchAPI()
+  useEffect(() => {
+    fetchAPI()
   }, [])
+
+  const searchData = (searchText, restaurants) => {
+    if (searchInput !== "") {
+      const filteredData = filterData(searchText, restaurants);
+      setFilterRest(filteredData)
+      setErrorMessage("")
+
+      if (filteredData?.length === 0) {
+        setErrorMessage("No Matches restaurant found");
+      }
+    } else {
+      setErrorMessage("")
+      setFilterRest(restaurants)
+    }
+  }
+
+  if (!allRest) return null
 
   return <div className='home-body'>
 
     <div className='search'>
       <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
       <button className='search-btn' onClick={() => {
-        const data = filterData(searchInput, allRest)
-        setFilterRest(data)
+        searchData(searchInput, allRest)
       }}>Search</button>
     </div>
 
-    <div className="cards">
-      {
-        filterRest.map((restaurant, index) => {
-          return <RestaurantCard restaurant={restaurant} key={index} />
-        })
-      }
-    </div>
+    {errorMessage && <div className='error-container'>{errorMessage}</div>}
 
+    {allRest?.length === 0 ? (<Shimmer />) :
+      (<div className="cards">
+        {
+          filterRest.map((restaurant, index) => {
+            return (<RestaurantCard restaurant={restaurant} key={index} />)
+          })
+        }
+      </div>)}
   </div>
 }
 

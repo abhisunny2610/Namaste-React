@@ -1,15 +1,15 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-:root{
+:root {
     --black-color: rgb(58, 58, 58);
     --orange: #ffa700;
 }
 
-.header{
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,12 +23,12 @@
 .header .links ul {
     list-style: none;
     display: inline-flex;
-    gap: 30px; 
+    gap: 30px;
     font-size: 18px;
     color: var(--black-color);
 }
 
-.rest-card{
+.rest-card {
     /* border: 1px solid black; */
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     width: 220px;
@@ -36,16 +36,16 @@
     border-radius: 10px;
     color: var(--black-color);
 
-    > img{
+    >img {
         width: 220px;
         height: 150px;
         border-radius: 10px;
     }
 
-    > .content{
+    >.content {
         padding: 10px;
 
-        > h3{
+        >h3 {
             font-size: 18px;
             /* width: fit-content; */
             overflow: hidden;
@@ -53,7 +53,7 @@
             text-overflow: ellipsis;
         }
 
-        > .rating{
+        >.rating {
             margin: 2px 0px;
             font-size: 16px;
             text-overflow: ellipsis;
@@ -63,7 +63,8 @@
             font-weight: bold;
         }
 
-        > .cuisines, .category{
+        >.cuisines,
+        .category {
             margin: 5px 0px;
             font-weight: 100;
             font-size: 16px;
@@ -75,10 +76,10 @@
         }
     }
 
-    
+
 }
 
-.cards{
+.cards {
     display: flex;
     /* align-items: center; */
     justify-content: center;
@@ -87,23 +88,23 @@
     /* flex-wrap: nowrap; */
 }
 
-.search{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        
-    > .search-input{
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    >.search-input {
         width: calc(100% - 20%);
         height: 3rem;
         /* border-radius: 5px; */
         padding: 10px;
         font-size: 16px;
         margin: 20px 0px;
-        
+
     }
 
-    > button{
+    >button {
         width: fit-content;
         height: 3rem;
         padding: 0px 10px;
@@ -114,14 +115,79 @@
         border-radius: 5px;
     }
 
-    >  button:active{
+    >button:active {
         /* background-color: #bb7900; */
         box-shadow: 2px 2px 2px #bb7900;
         transform: translateX(2px);
     }
 }
 
-.home-body{
+.home-body {
     padding: 20px 60px;
 }
 
+/*Shimmer CSS */
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.shimmer-card {
+    flex-basis: 220px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-color: #d3d5df;
+    box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
+}
+
+.shimmer-title {
+    width: 60%;
+    margin-top: 10px;
+}
+
+.shimmer-tags {
+    width: 80%;
+    margin-top: 4px;
+}
+
+.shimmer-details {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.shimmer-container .shimmer-img {
+    height: 144px;
+    width: 220px;
+}
+
+/*Animation to Shimmer Component Cards */
+.stroke {
+    height: 15px;
+    background: #777;
+}
+
+.animate {
+    animation: shimmer 3s;
+    animation-iteration-count: infinite;
+    background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+    background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+    from {
+        background-position: -1000px 0;
+    }
+
+    to {
+        background-position: 1000px 0;
+    }
+}
+
+/* error message */
+.error-container {
+    text-align: center;
+    font-size: large;
+    margin: 20px 0;
+}

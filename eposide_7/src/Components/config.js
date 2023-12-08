@@ -3,6 +3,7 @@ export const IMAGE_CDN = "https://media-assets.swiggy.com/swiggy/image/upload/fl
 export const swiggy_api_URL =
   "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.877387&lng=75.763626&page_type=DESKTOP_WEB_LISTING";
 
+export const shimmer_card_unit = 20
 
 export const restaurantList = [
     {
