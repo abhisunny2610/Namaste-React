@@ -1,0 +1,127 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --black-color: rgb(58, 58, 58);
+    --orange: #ffa700;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    background-color: white;
+    padding: 20px 60px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.header .links ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 30px; 
+    font-size: 18px;
+    color: var(--black-color);
+}
+
+.rest-card{
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    width: 220px;
+    /* padding: 10px; */
+    border-radius: 10px;
+    color: var(--black-color);
+
+    > img{
+        width: 220px;
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    > .content{
+        padding: 10px;
+
+        > h3{
+            font-size: 18px;
+            /* width: fit-content; */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        > .rating{
+            margin: 2px 0px;
+            font-size: 16px;
+            text-overflow: ellipsis;
+            /* overflow: hidden; */
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+        > .cuisines, .category{
+            margin: 5px 0px;
+            font-weight: 100;
+            font-size: 16px;
+            text-overflow: ellipsis;
+            /* overflow: hidden; */
+            white-space: nowrap;
+            overflow: hidden;
+            color: var(--black-color);
+        }
+    }
+
+    
+}
+
+.cards{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    /* flex-wrap: nowrap; */
+}
+
+.search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        
+    > .search-input{
+        width: calc(100% - 20%);
+        height: 3rem;
+        /* border-radius: 5px; */
+        padding: 10px;
+        font-size: 16px;
+        margin: 20px 0px;
+        
+    }
+
+    > button{
+        width: fit-content;
+        height: 3rem;
+        padding: 0px 10px;
+        font-size: 16px;
+        background-color: var(--orange);
+        border: none;
+        outline: none;
+        border-radius: 5px;
+    }
+
+    >  button:active{
+        /* background-color: #bb7900; */
+        box-shadow: 2px 2px 2px #bb7900;
+        transform: translateX(2px);
+    }
+}
+
+.home-body{
+    padding: 20px 60px;
+}
+
