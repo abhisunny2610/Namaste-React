@@ -7,7 +7,7 @@ const Header = () => {
     <div className="header">
         <div className="logo">
             {/* <h3>Food Villa</h3> */}
-           <a href="#"> <img src={logo} alt="logo" width="120px"/></a>
+           <Link to='/'> <img src={logo} alt="logo" width="120px"/></Link>
 
         </div>
         <div className="links">

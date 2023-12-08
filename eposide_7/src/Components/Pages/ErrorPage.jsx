@@ -1,5 +1,5 @@
 import error from '../Images/error.jpg'
-import { useRouteError } from 'react-router-dom'
+import { useRouteError, Link } from 'react-router-dom'
 
 const ErrorPage = () => {
 
@@ -9,7 +9,7 @@ const ErrorPage = () => {
     <div className="error-page">
         <img src={error} alt="error" />
         <p>We're sorry, the page you are looking for cannot be found. {err.status + err.statusText}</p>
-        <a href="">Back To Home</a>
+        <Link to='/'>Back To Home</Link>
     </div>
   )
 }
