@@ -1,19 +1,39 @@
 import Home from './Components/Pages/Home';
 import './App.css';
 import About from './Components/Pages/About';
-import { createBrowserRouter , RouterProvider} from 'react-router-dom';
+import { createBrowserRouter , RouterProvider, Outlet} from 'react-router-dom';
+import ErrorPage from './Components/Pages/ErrorPage';
+import Header from './Components/Utilities/Header';
+import Footer from './Components/Utilities/Footer';
 
+const Applayout = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
 
 const appRouter = createBrowserRouter([
   {
     path: '/',
-    element : <Home />
+    element : <Applayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/about",
+        element : <About />
+      }
+    ]
   },
-  {
-    path: '/about',
-    element: <About />
-  }
 ])
+
 
 function App() {
   return (
