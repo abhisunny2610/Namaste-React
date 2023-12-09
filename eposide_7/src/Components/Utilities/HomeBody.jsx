@@ -22,7 +22,7 @@ const RestaurantCard = ({ restaurant }) => {
     <img src={IMAGE_CDN + cloudinaryImageId} alt="restaurant" />
     <div className="content">
       <h3 className='name'>{name}</h3>
-      <p className='rating'>{avgRating} . {deliveryTime} mins</p>
+      <p className='rating'>{avgRating} • {deliveryTime} mins</p>
       <p className="cuisines">{cuisines.join(", ")}</p>
       <p className="address">{areaName}</p>
     </div>

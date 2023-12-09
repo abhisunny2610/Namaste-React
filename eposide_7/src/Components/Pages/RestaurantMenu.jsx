@@ -55,6 +55,7 @@ const RestaurantMenu = () => {
                 <div className="restaurant-summary-details">
                     <h2 className="restaurant-title">{restaurant?.name}</h2>
                     <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
+                    <p className="restaurant-tags" style={{marginTop: "3px"}}>{restaurant?.areaName}</p>
                     <div className="restaurant-details">
                         <div className="restaurant-rating" style={
                             (restaurant?.avgRating) < 4
@@ -67,7 +68,7 @@ const RestaurantMenu = () => {
                             <span>{restaurant?.avgRating}</span>
                         </div>
                         <div className="restaurant-rating-slash">|</div>
-                        <div>{restaurant?.sla?.slaString}</div>
+                        <div><i class="fa-solid fa-motorcycle"></i> <span style={{marginLeft: "5px"}}>{restaurant?.sla?.slaString}</span></div>
                         <div className="restaurant-rating-slash">|</div>
                         <div>{restaurant?.costForTwoMessage}</div>
                     </div>
