@@ -86,6 +86,16 @@ a{
             white-space: nowrap;
             overflow: hidden;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            > i{
+                background-color: var(--dark-green);
+                color: var(--input-bg);
+                padding: 3px;
+                font-size: 12px;
+                border-radius: 50%;
+            }
         }
 
         >.cuisines,

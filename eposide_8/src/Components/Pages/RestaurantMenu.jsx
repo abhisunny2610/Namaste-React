@@ -26,15 +26,11 @@ const RestaurantMenu = () => {
         setRestaurant(restaurantData);
 
         // set menu item data
-        const menuItemsData = json?.data?.cards.find(x => x.groupedCard)?.
-            groupedCard?.cardGroupMap?.REGULAR?.
-            cards?.map(x => x.card?.card)?.
-            filter(x => x['@type'] == MENU_ITEM_TYPE_KEY)?.
-            map(x => x.itemCards).flat().map(x => x.card?.info) || [];
+        const menuItemsData = json?.data?.cards.find(x => x.groupedCard)?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(x => x.card?.card)?.filter(x => x['@type'] == MENU_ITEM_TYPE_KEY)?.map(x => x.itemCards).flat().map(x => x.card?.info) || [];
 
         const uniqueMenuItems = [];
         menuItemsData.forEach((item) => {
-            if (!uniqueMenuItems.find(x => x.id === item.id)) {
+            if (!uniqueMenuItems.find(x => x.id == item.id)) {
                 uniqueMenuItems.push(item);
             }
         })
@@ -68,7 +64,7 @@ const RestaurantMenu = () => {
                             <span>{restaurant?.avgRating}</span>
                         </div>
                         <div className="restaurant-rating-slash">|</div>
-                        <div><i class="fa-solid fa-motorcycle"></i> <span style={{marginLeft: "5px"}}>{restaurant?.sla?.slaString}</span></div>
+                        <div><i className="fa-solid fa-motorcycle"></i> <span style={{marginLeft: "5px"}}>{restaurant?.sla?.slaString}</span></div>
                         <div className="restaurant-rating-slash">|</div>
                         <div>{restaurant?.costForTwoMessage}</div>
                     </div>

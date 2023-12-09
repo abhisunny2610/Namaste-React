@@ -16,13 +16,13 @@ function filterData(searchText, filterList) {
 
 const RestaurantCard = ({ restaurant }) => {
 
-  const { cuisines, name, cloudinaryImageId, avgRating, areaName, deliveryTime } = restaurant?.info
+  const { cuisines, name, cloudinaryImageId, avgRating, areaName, sla } = restaurant?.info
 
   return <div className="rest-card">
     <img src={IMAGE_CDN + cloudinaryImageId} alt="restaurant" />
     <div className="content">
       <h3 className='name'>{name}</h3>
-      <p className='rating'>{avgRating} • {deliveryTime} mins</p>
+      <p className='rating'><i className="fa-solid fa-star"></i><span>{avgRating} • </span><span>{sla.deliveryTime} mins</span></p>
       <p className="cuisines">{cuisines.join(", ")}</p>
       <p className="address">{areaName}</p>
     </div>
@@ -44,7 +44,7 @@ const HomeBody = () => {
     const data = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setFilterRest(data)
     setAllRest(data)
-    // console.log("rest",data)
+    console.log("rest",data)
   }
   // console.log("filterlist",filterRest)
 
