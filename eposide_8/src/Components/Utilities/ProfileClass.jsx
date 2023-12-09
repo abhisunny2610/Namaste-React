@@ -9,9 +9,22 @@ class ProfileClass extends React.Component{
             count : 0,
             age : 19
         }
+
+        // first call
+        console.log("Constructor")
+    }
+
+    componentDidMount(){
+        // API Calls
+        // then this call
+        console.log("Component Did Mount")
     }
 
     render(){
+
+        // second call
+        console.log("render")
+
         return (
             <div>
                 <h1>Profile class Component</h1>
