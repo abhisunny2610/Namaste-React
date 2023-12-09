@@ -6,6 +6,7 @@ import ErrorPage from './Components/Pages/ErrorPage';
 import Header from './Components/Utilities/Header';
 import Footer from './Components/Utilities/Footer';
 import RestaurantMenu from './Components/Pages/RestaurantMenu';
+import Profile from './Components/Pages/Profile';
 
 const Applayout = () => {
   return (
@@ -34,6 +35,10 @@ const appRouter = createBrowserRouter([
       {
         path : "/restaurant/:resId",
         element : <RestaurantMenu />
+      },
+      {
+        path : "profile",
+        element : <Profile />
       }
     ]
   },

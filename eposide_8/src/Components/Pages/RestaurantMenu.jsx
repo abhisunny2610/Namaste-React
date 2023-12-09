@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { swiggy_menu_api_URL, IMG_CDN_URL, MENU_ITEM_TYPE_KEY, RESTAURANT_TYPE_KEY, ITEM_IMG_CDN_URL } from '../config'
@@ -90,7 +89,7 @@ const RestaurantMenu = () => {
                                                 style: "currency",
                                                 currency: "INR",
                                             }).format(item?.price / 100)
-                                            : " "}
+                                            : " " }
                                     </p>
                                     <p className="item-desc">{item?.description}</p>
                                 </div>
