@@ -6,7 +6,24 @@
 
 :root {
     --black-color: rgb(58, 58, 58);
-    --orange: #ffa700;
+    --orange: #c26100;
+    --header-bg-color: rgb(1, 163, 144);
+    --footer-bg-color: rgb(1, 163, 144);
+    --body-bg-color: #e3e3e3;
+    --input-bg: #f2f2f2;
+    --input-bg-focus: #dbdbdb;
+    --text-color: #000;
+    --light-green: #00ad1d;
+    --dark-green: #016034;
+    --orange: #d97919;
+    --light-orange: #ffaf60;
+    --dark-orange: #c26100;
+    --x-dark-orange: rgb(157, 42, 1);
+    --light-red: rgb(236, 56, 56);
+    --white: #fff;
+    --light-black: rgb(23, 23, 23);
+    --light-blue: #0463ac;
+    --dark-blue: #070062;
 }
 
 .header {
@@ -20,7 +37,7 @@
 
 }
 
-.header .links a{
+.header .links a {
     text-decoration: none;
     color: var(--black-color);
 }
@@ -31,6 +48,9 @@
     gap: 30px;
     font-size: 18px;
     color: var(--black-color);
+}
+a{
+    text-decoration: none;
 }
 
 .rest-card {
@@ -197,23 +217,23 @@
     margin: 20px 0;
 }
 
-.error-page{
+.error-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 
-    > img{
+    >img {
         width: 400px;
     }
 
-    > p{
+    >p {
         font-size: 20px;
         font-family: sans-serif;
     }
 
-    > a{
+    >a {
         text-decoration: none;
         margin-top: 15px;
         border: 2px solid #dafc84;
@@ -224,4 +244,160 @@
         color: black;
     }
 
+}
+
+/* Restaurant Menu CSS Start */
+.restaurant-menu {
+    margin-top: 80px;
+    min-height: 80vh;
+    width: auto;
+}
+
+.restaurant-summary {
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-black);
+    color: var(--white);
+}
+
+.restaurant-img {
+    width: 250px;
+    height: 170px;
+    border-radius: 5px;
+}
+
+.restaurant-summary-details {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 520px;
+    margin: 20px;
+}
+
+.restaurant-title {
+    font-size: 40px;
+    max-width: 540px;
+    font-weight: 300;
+}
+
+.restaurant-tags {
+    white-space: nowrap;
+    color: inherit;
+    opacity: 0.7;
+    font-size: 15px;
+    max-width: 540px;
+}
+
+.restaurant-details {
+    display: flex;
+    margin-top: 18px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    color: inherit;
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 340px;
+}
+
+.restaurant-rating {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    gap: 5px;
+    background-color: var(--dark-green);
+    border-radius: 5px;
+}
+
+.restaurant-menu-content {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-items-container {
+    margin-top: 30px;
+    width: 850px;
+}
+
+.menu-title-wrap {
+    padding: 20px;
+}
+
+.menu-count {
+    margin-top: 14px;
+    line-height: 1.3;
+    color: rgba(40, 44, 63, 0.45);
+    letter-spacing: -0.3px;
+    font-size: 1rem;
+}
+
+.menu-items-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    max-height: 250px;
+    padding: 20px;
+    border-bottom: rgba(40, 44, 63, 0.45) 0.5px solid;
+}
+
+.menu-item-details {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    overflow: hidden;
+}
+
+.item-title {
+    width: 60%;
+}
+
+.item-desc {
+    margin-top: 14px;
+    line-height: 1.3;
+    color: rgba(40, 44, 63, 0.45);
+    width: 60%;
+    letter-spacing: -0.3px;
+    font-size: 1rem;
+}
+
+.item-cost {
+    margin-top: 4px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #3e4152;
+    width: 40%;
+}
+
+.menu-img-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 200px;
+    overflow: hidden;
+}
+
+.menu-item-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.add-btn {
+    background-color: var(--orange);
+    color: var(--text-color);
+    padding: 8px 25px;
+    cursor: pointer;
+    outline: none;
+    border-color: var(--dark-orange);
+    margin-top: 10px;
+    border-radius: 5px;
 }

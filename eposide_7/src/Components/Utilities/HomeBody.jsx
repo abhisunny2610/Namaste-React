@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { IMAGE_CDN } from '../config';
-import { swiggy_api_URL } from '../config';
+import { swiggy_api_URL, IMAGE_CDN} from '../config';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 // import { restaurantList } from '../config';
 // import foodimg from '../Images/foodimage.jpg'
@@ -44,6 +44,7 @@ const HomeBody = () => {
     const data = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setFilterRest(data)
     setAllRest(data)
+    // console.log("rest",data)
   }
   // console.log("filterlist",filterRest)
 
@@ -83,7 +84,7 @@ const HomeBody = () => {
       (<div className="cards">
         {
           filterRest.map((restaurant, index) => {
-            return (<RestaurantCard restaurant={restaurant} key={index} />)
+            return (<Link to={'/restaurant/' + restaurant?.info?.id} key={index} ><RestaurantCard restaurant={restaurant} key={index} /></Link>)
           })
         }
       </div>)}
