@@ -1,41 +1,13 @@
-import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { swiggy_menu_api_URL, IMG_CDN_URL, MENU_ITEM_TYPE_KEY, RESTAURANT_TYPE_KEY, ITEM_IMG_CDN_URL } from '../config'
-import { useEffect } from 'react'
+import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from '../config'
 import { MenuShimmer } from '../Utilities/Shimmer'
+import useSingleRestaurant from '../../Hooks/UseRestaurant'
 
 const RestaurantMenu = () => {
 
     const { resId } = useParams()
-    const [restaurant, setRestaurant] = useState(null)
-    const [menuItems, setMenuItems] = useState([]);
 
-    useEffect(() => {
-        getRestaurantInfo()
-    }, [])
-
-    async function getRestaurantInfo() {
-        const response = await fetch(swiggy_menu_api_URL + resId)
-
-        const json = await response.json()
-
-        // set restaurantData
-        const restaurantData = json?.data?.cards?.map(x => x.card)?.find(x => x && x.card['@type'] === RESTAURANT_TYPE_KEY)?.card?.info || null;
-
-        setRestaurant(restaurantData);
-
-        // set menu item data
-        const menuItemsData = json?.data?.cards.find(x => x.groupedCard)?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(x => x.card?.card)?.filter(x => x['@type'] == MENU_ITEM_TYPE_KEY)?.map(x => x.itemCards).flat().map(x => x.card?.info) || [];
-
-        const uniqueMenuItems = [];
-        menuItemsData.forEach((item) => {
-            if (!uniqueMenuItems.find(x => x.id == item.id)) {
-                uniqueMenuItems.push(item);
-            }
-        })
-        setMenuItems(uniqueMenuItems);
-
-    }
+    const [restaurant, menuItems] = useSingleRestaurant(resId)
 
     return !restaurant ? (
         <MenuShimmer />
@@ -50,7 +22,7 @@ const RestaurantMenu = () => {
                 <div className="restaurant-summary-details">
                     <h2 className="restaurant-title">{restaurant?.name}</h2>
                     <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
-                    <p className="restaurant-tags" style={{marginTop: "3px"}}>{restaurant?.areaName}</p>
+                    <p className="restaurant-tags" style={{ marginTop: "3px" }}>{restaurant?.areaName}</p>
                     <div className="restaurant-details">
                         <div className="restaurant-rating" style={
                             (restaurant?.avgRating) < 4
@@ -63,7 +35,7 @@ const RestaurantMenu = () => {
                             <span>{restaurant?.avgRating}</span>
                         </div>
                         <div className="restaurant-rating-slash">|</div>
-                        <div><i className="fa-solid fa-motorcycle"></i> <span style={{marginLeft: "5px"}}>{restaurant?.sla?.slaString}</span></div>
+                        <div><i className="fa-solid fa-motorcycle"></i> <span style={{ marginLeft: "5px" }}>{restaurant?.sla?.slaString}</span></div>
                         <div className="restaurant-rating-slash">|</div>
                         <div>{restaurant?.costForTwoMessage}</div>
                     </div>
@@ -89,7 +61,7 @@ const RestaurantMenu = () => {
                                                 style: "currency",
                                                 currency: "INR",
                                             }).format(item?.price / 100)
-                                            : " " }
+                                            : " "}
                                     </p>
                                     <p className="item-desc">{item?.description}</p>
                                 </div>

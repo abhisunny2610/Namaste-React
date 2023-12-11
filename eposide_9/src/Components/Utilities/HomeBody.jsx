@@ -2,17 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { swiggy_api_URL, IMAGE_CDN} from '../config';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
-
-// import { restaurantList } from '../config';
-// import foodimg from '../Images/foodimage.jpg'
-
-function filterData(searchText, filterList) {
-
-  const filterData = filterList.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase()))
-
-  return filterData
-}
-
+import { filterData } from '../../Utils/Hepler';
 
 const RestaurantCard = ({ restaurant }) => {
 
@@ -40,13 +30,10 @@ const HomeBody = () => {
   async function fetchAPI() {
     const response = await fetch(swiggy_api_URL)
     const json = await response.json();
-    // console.log("Json", json)
     const data = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setFilterRest(data)
     setAllRest(data)
-    console.log("rest",data)
   }
-  // console.log("filterlist",filterRest)
 
   useEffect(() => {
     fetchAPI()

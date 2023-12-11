@@ -13,7 +13,7 @@ class ProfileClass extends React.Component{
                 location : ""
             }
         }
-
+ 
         // first call
         console.log("Constructor")
     }
