@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad&family=Poppins:wght@300&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -6,12 +8,7 @@
 
 :root {
     --black-color: rgb(58, 58, 58);
-    --orange: #c26100;
-    --header-bg-color: rgb(1, 163, 144);
-    --footer-bg-color: rgb(1, 163, 144);
     --body-bg-color: #e3e3e3;
-    --input-bg: #f2f2f2;
-    --input-bg-focus: #dbdbdb;
     --text-color: #000;
     --light-green: #00ad1d;
     --dark-green: #016034;
@@ -24,22 +21,28 @@
     --light-black: rgb(23, 23, 23);
     --light-blue: #0463ac;
     --dark-blue: #070062;
+    --afacad: 'Afacad', sans-serif;
+    --poppins: 'Poppins', sans-serif;
 }
+
+section{
+    padding: 6rem 60px 10px 60px;
+}
+
+
+/*------------------ Header Style --------------------*/
 
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 5rem;
-    background-color: white;
+    background-color: var(--white);
     padding: 20px 60px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-}
-
-.header .links a {
-    text-decoration: none;
-    color: var(--black-color);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
 }
 
 .header .links ul {
@@ -49,17 +52,29 @@
     font-size: 18px;
     color: var(--black-color);
 }
-a{
+
+.header .links ul>a {
+    color: var(--text-color);
+    font-family: var(--afacad);
+}
+
+a {
     text-decoration: none;
 }
 
+/*------------------ Header Style Finish --------------------*/
+
+
+/*------------------ Restaurant Card Style Start --------------------*/
+
 .rest-card {
-    /* border: 1px solid black; */
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     width: 220px;
-    /* padding: 10px; */
     border-radius: 10px;
-    color: var(--black-color);
+    color: var(--text-color);
+    font-family: var(--poppins);
+    height: fit-content;
+    transition: transform 0.2s ease-in-out;
 
     >img {
         width: 220px;
@@ -71,8 +86,7 @@ a{
         padding: 10px;
 
         >h3 {
-            font-size: 18px;
-            /* width: fit-content; */
+            font-size: 16px;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -80,7 +94,7 @@ a{
 
         >.rating {
             margin: 2px 0px;
-            font-size: 16px;
+            font-size: 14px;
             text-overflow: ellipsis;
             /* overflow: hidden; */
             white-space: nowrap;
@@ -89,9 +103,11 @@ a{
             display: flex;
             align-items: center;
             gap: 5px;
-            > i{
+
+            >i {
                 background-color: var(--dark-green);
-                color: var(--input-bg);
+                /* color: var(--input-bg); */
+                color: var(--white);
                 padding: 3px;
                 font-size: 12px;
                 border-radius: 50%;
@@ -99,10 +115,10 @@ a{
         }
 
         >.cuisines,
-        .category {
+        .address {
             margin: 5px 0px;
             font-weight: 100;
-            font-size: 16px;
+            font-size: 14px;
             text-overflow: ellipsis;
             /* overflow: hidden; */
             white-space: nowrap;
@@ -110,55 +126,66 @@ a{
             color: var(--black-color);
         }
     }
+}
 
-
+.rest-card:hover{
+    transform: scale(1.03);
 }
 
 .cards {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
-    /* flex-wrap: nowrap; */
+    margin: 2rem 0px;
 }
+
+/*------------------ Restaurant Card Style Finish --------------------*/
+
+
+/*------------------ SearchBox Style Start --------------------*/
 
 .search {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 
     >.search-input {
-        width: calc(100% - 20%);
-        height: 3rem;
-        /* border-radius: 5px; */
+        width: calc(100% - 50%);
+        height: 2.5rem;
         padding: 10px;
-        font-size: 16px;
-        margin: 20px 0px;
+        font-size: 14px;
+        border-radius: 5px 0px 0px 5px;
+        font-family: var(--poppins);
+        font-weight: 400;
+        border: 1px solid rgb(170, 188, 202);
+    }
 
+    >.search-input:focus {
+        border: 1px solid var(--orange);
+        outline: none;
     }
 
     >button {
         width: fit-content;
-        height: 3rem;
-        padding: 0px 10px;
-        font-size: 16px;
+        height: 2.5rem;
+        padding: 0px 15px;
+        font-size: 14px;
+        color: var(--white);
         background-color: var(--orange);
         border: none;
         outline: none;
-        border-radius: 5px;
+        border-radius: 0px 5px 5px 0px;
+        transition: all 0.3s ease-in-out;
     }
 
-    >button:active {
-        /* background-color: #bb7900; */
-        box-shadow: 2px 2px 2px #bb7900;
-        transform: translateX(2px);
+    >button:active, button:hover {
+        background-color: var(--dark-green);
     }
 }
 
 .home-body {
-    padding: 20px 60px;
+    
 }
 
 /*Shimmer CSS */
@@ -258,14 +285,15 @@ a{
 
 /* Restaurant Menu CSS Start */
 .restaurant-menu {
-    margin-top: 80px;
+    /* margin-top: 80px; */
     min-height: 80vh;
     width: auto;
+    font-family: var(--poppins);
 }
 
 .restaurant-summary {
     display: flex;
-    height: 200px;
+    height: 250px;
     justify-content: center;
     align-items: center;
     background-color: var(--light-black);
@@ -295,7 +323,7 @@ a{
     white-space: nowrap;
     color: inherit;
     opacity: 0.7;
-    font-size: 15px;
+    font-size: 14px;
     max-width: 540px;
 }
 
@@ -363,6 +391,7 @@ a{
     flex-direction: column;
     align-self: flex-start;
     overflow: hidden;
+    font-size: 14px;
 }
 
 .item-title {
@@ -375,7 +404,7 @@ a{
     color: rgba(40, 44, 63, 0.45);
     width: 60%;
     letter-spacing: -0.3px;
-    font-size: 1rem;
+    font-size: 14px;
 }
 
 .item-cost {
@@ -403,7 +432,7 @@ a{
 
 .add-btn {
     background-color: var(--orange);
-    color: var(--text-color);
+    color: var(--white);
     padding: 8px 25px;
     cursor: pointer;
     outline: none;
@@ -412,18 +441,18 @@ a{
     border-radius: 5px;
 }
 
-.footer{
+.footer {
     background-color: var(--dark-orange);
     text-align: center;
     padding: 15px;
     margin-top: 50px;
 
-    > p{
+    >p {
         font-size: 18px;
-        
-        > span{
+
+        >span {
             font-weight: bold;
             color: var(--input-bg);
-        }   
+        }
     }
 }

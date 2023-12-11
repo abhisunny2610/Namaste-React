@@ -13,8 +13,14 @@ const RestaurantCard = ({ restaurant }) => {
     <img src={IMAGE_CDN + cloudinaryImageId} alt="restaurant" />
     <div className="content">
       <h3 className='name'>{name}</h3>
-      <p className='rating'><i className="fa-solid fa-star"></i><span>{avgRating} • </span><span>{sla.deliveryTime} mins</span></p>
       <p className="cuisines">{cuisines.join(", ")}</p>
+      <p className='rating'><i className="fa-solid fa-star" style={
+                            (avgRating) < 4
+                                ? { backgroundColor: "var(--light-red)" }
+                                : (avgRating) === "--"
+                                    ? { backgroundColor: "white", color: "black" }
+                                    : { color: "white" }
+                        }></i><span>{avgRating} • </span><span>{sla.deliveryTime} mins</span></p>
       <p className="address">{areaName}</p>
     </div>
   </div>
@@ -62,7 +68,7 @@ const HomeBody = () => {
 
   if (!allRest) return null
 
-  return <div className='home-body'>
+  return <section className='home-body'>
 
     <div className='search'>
       <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
@@ -81,7 +87,7 @@ const HomeBody = () => {
           })
         }
       </div>)}
-  </div>
+  </section>
 }
 
 export default HomeBody

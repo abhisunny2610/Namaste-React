@@ -12,7 +12,7 @@ const RestaurantMenu = () => {
     return !restaurant ? (
         <MenuShimmer />
     ) : (
-        <div className="restaurant-menu">
+        <section className="restaurant-menu">
             <div className="restaurant-summary">
                 <img
                     className="restaurant-img"
@@ -80,7 +80,7 @@ const RestaurantMenu = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
