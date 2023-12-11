@@ -20,7 +20,7 @@ const useOnline = () => {
 
         return () => {
             window.removeEventListener("online", handleOnline)
-            window.removeEventListener("online", handleOffline)
+            window.removeEventListener("offline", handleOffline)
         }
 
     }, [])
