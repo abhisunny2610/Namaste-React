@@ -3,6 +3,7 @@ import { swiggy_api_URL, IMAGE_CDN} from '../config';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { filterData } from '../../Utils/Hepler';
+import useOnline from '../../Hooks/useOnline';
 
 const RestaurantCard = ({ restaurant }) => {
 
@@ -52,6 +53,11 @@ const HomeBody = () => {
       setErrorMessage("")
       setFilterRest(restaurants)
     }
+  }
+
+  const offline = useOnline()
+  if(!offline){
+    return <h1 style={{textAlign: "center", margin: "50px 0px"}}>Offline, please check your internet connection</h1>
   }
 
   if (!allRest) return null
