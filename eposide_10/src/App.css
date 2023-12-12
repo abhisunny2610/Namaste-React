@@ -25,6 +25,9 @@
     --light-blue: #0463ac;
     --dark-blue: #070062;
 }
+body{
+    background-color: var(--white);
+}
 
 .header {
     display: flex;
