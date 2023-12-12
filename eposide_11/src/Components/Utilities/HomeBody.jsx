@@ -62,7 +62,7 @@ const HomeBody = () => {
 
   if (!allRest) return null
 
-  return <div className='home-body'>
+  return <section className='home-body mt-16'>
 
     <div className='search'>
       <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
@@ -81,7 +81,7 @@ const HomeBody = () => {
           })
         }
       </div>)}
-  </div>
+  </section>
 }
 
 export default HomeBody
