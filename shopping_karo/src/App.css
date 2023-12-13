@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@300;400&family=Open+Sans:wght@300;400&display=swap');
+
+:root {
+    --kalina-font: 'Kalnia', serif;
+    --opensans-font: 'Open Sans', sans-serif;
+    --black: #000;
+    --white: #fff;
+    --fs-16 : 16px;
+    --fs-18: 18px;
+    --fs-14: 14px;
+    --orange: rgb(253, 173, 23);
+    --gray: rgb(243, 243, 243);
+    --gray-dark: rgb(230, 230, 230);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* -------------common style ---------*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+    background-color: var(--gray);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+section {
+    padding: 4rem 40px;
 }
 
-.App-link {
-  color: #61dafb;
+/* -------------header style style---------*/
+
+.header {
+    background-color: var(--white);
+    width: 100%;
+    /* height: fit-content; */
+    height: 3.5rem;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 999;
+
+    >.name {
+        >h3 {
+            font-family: var(--kalina-font);
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: x-large;
+        }
+    }
+
+    >.links {
+        >ul {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 10px;
+
+            >a {
+                text-decoration: none;
+                color: var(--black);
+                font-family: var(--opensans-font);
+                font-size: 16px;
+            }
+            > a:active{
+                color: var(--orange);
+            }
+        }
+    }
+
+    .user {
+        >.login {
+            margin-top: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            width: fit-content;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: var(--opensans-font);
+        }
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* -------------header style finish---------*/
+
+/* -------------Home page style start---------*/
+
+.home-body {
+    font-family: var(--opensans-font);
+    font-size: var(--fs-14);
+    position: relative;
+    
+    > .category {
+        padding: 5px 10px;
+        color: var(--white);
+        background-color: var(--black);
+
+        >.buttons {
+            
+            >button {
+                outline: none;
+                cursor: context-menu;
+                border: none;
+                padding: 2px 5px;
+                background-color: var(--black);
+                color: var(--white);
+                margin-right: 10px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            > button:hover{
+                color: var(--orange);
+            }
+        }
+
+        > .search{
+
+            > input{
+                width: 300px;
+                height: 2rem;
+                padding: 0px 5px;
+                border: none;
+                outline: none;
+                border-radius: 3px 0px 0px 3px;
+            }
+
+            > input:focus{
+                border: 1px solid var(--orange);
+            }
+
+            > button{
+                height: 2rem;
+                outline: none;
+                border: none;
+                background-color: var(--orange);
+                padding: 0px 8px;
+                border-radius: 0px 3px 3px 0px;
+                color: var(--white);
+            }
+        }
+    }
+
+    > .coupon{
+        cursor: context-menu;
+        border-bottom: 1px solid black;
+        /* position: fixed; */
+
+        > p{
+            font-size: var(--fs-16);
+            font-weight: 600;
+
+            > span{
+                font-weight: 300;
+            }
+
+            > .details{
+                font-size: 12px;
+                margin-left: 5px;
+            }
+        }
+    }
 }
+
+/* -------------Home page style finish---------*/
+
+/* -------------product card style start---------*/
+
+.product-card{
+    width: 250px;
+    border: 1px solid var(--gray-dark);
+    font-family: var(--opensans-font);
+
+    > img{
+        width: 249px;
+        height: 260px;
+    }
+
+    > .description{
+        font-size: var(--fs-14);
+        padding: 0px 10px;
+    }
+
+    > .price{
+        padding: 0px 10px;
+        font-size: var(--fs-16);
+    }
+}
+
+/* -------------product card style finish---------*/
