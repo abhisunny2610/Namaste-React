@@ -9,6 +9,7 @@ import Footer from './Components/Utilities/Footer';
 import RestaurantMenu from './Components/Pages/RestaurantMenu';
 import Profile from './Components/Pages/Profile';
 import Shimmer from './Components/Utilities/Shimmer';
+import UserContext from './Utils/UserContext';
 
 
 /* 
@@ -36,14 +37,19 @@ const InstaMart = React.lazy(()=> import("./Components/Pages/InstaMart"))
 
 const Applayout = () => {
 
-  // const [user, setUser] = useState()
+  const [user, setUser] = useState({
+    name : "abhishek singh",
+    email : "abhisunny453@gmail.com"
+  })
 
   return (
-    <>
+    <UserContext.Provider value={
+      user
+    }>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </UserContext.Provider>
   )
 }
 
