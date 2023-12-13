@@ -1,8 +1,13 @@
 import React from 'react'
 import logo from '../Images/7697984-removebg-preview.png'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import UserContext from '.././../Utils/UserContext'
 
 const Header = () => {
+
+  const user  = useContext(UserContext)
+
   return (
     <div className="header">
       <div className="logo">
@@ -10,6 +15,8 @@ const Header = () => {
         <Link to='/'> <img src={logo} alt="logo" width="120px" /></Link>
 
       </div>
+      <p>{user.name}</p>
+      {/* <p>{user.email}</p> */}
       <div className="links">
         <ul>
           <Link to="/">

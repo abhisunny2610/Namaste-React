@@ -17,14 +17,12 @@ const RestaurantCard = ({ restaurant, user }) => {
       <p className='rating'><i className="fa-solid fa-star"></i><span>{avgRating} • </span><span>{sla.deliveryTime} mins</span></p>
       <p className="cuisines">{cuisines.join(", ")}</p>
       <p className="address">{areaName}</p>
-      <p>{sname}</p>
-      <p>{email}</p>
     </div>
   </div>
 }
 
 
-const HomeBody = ({user}) => {
+const HomeBody = () => {
 
   const [searchInput, setSearchInput] = useState("")
   const [allRest, setAllRest] = useState([])
@@ -80,7 +78,7 @@ const HomeBody = ({user}) => {
       (<div className="cards">
         {
           filterRest.map((restaurant, index) => {
-            return (<Link to={'/restaurant/' + restaurant?.info?.id} key={index} ><RestaurantCard restaurant={restaurant} key={index} user={user}/></Link>)
+            return (<Link to={'/restaurant/' + restaurant?.info?.id} key={index} ><RestaurantCard restaurant={restaurant} key={index} /></Link>)
           })
         }
       </div>)}
