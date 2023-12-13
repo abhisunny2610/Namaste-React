@@ -1,9 +1,9 @@
 import React from 'react'
 import HomeBody from '../Utilities/HomeBody'
 
-const Home = () => {
+const Home = ({user}) => {
   return <>
-    <HomeBody />
+    <HomeBody user={user}/>
   </>
 }
 

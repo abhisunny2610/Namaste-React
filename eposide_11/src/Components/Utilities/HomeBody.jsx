@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { filterData } from '../../Utils/Hepler';
 import useOnline from '../../Hooks/useOnline';
 
-const RestaurantCard = ({ restaurant }) => {
+const RestaurantCard = ({ restaurant, user }) => {
 
   const { cuisines, name, cloudinaryImageId, avgRating, areaName, sla } = restaurant?.info
+  const {sname, email} = user
 
   return <div className="rest-card">
     <img src={IMAGE_CDN + cloudinaryImageId} alt="restaurant" />
@@ -16,12 +17,14 @@ const RestaurantCard = ({ restaurant }) => {
       <p className='rating'><i className="fa-solid fa-star"></i><span>{avgRating} • </span><span>{sla.deliveryTime} mins</span></p>
       <p className="cuisines">{cuisines.join(", ")}</p>
       <p className="address">{areaName}</p>
+      <p>{sname}</p>
+      <p>{email}</p>
     </div>
   </div>
 }
 
 
-const HomeBody = () => {
+const HomeBody = ({user}) => {
 
   const [searchInput, setSearchInput] = useState("")
   const [allRest, setAllRest] = useState([])
@@ -77,7 +80,7 @@ const HomeBody = () => {
       (<div className="cards">
         {
           filterRest.map((restaurant, index) => {
-            return (<Link to={'/restaurant/' + restaurant?.info?.id} key={index} ><RestaurantCard restaurant={restaurant} key={index} /></Link>)
+            return (<Link to={'/restaurant/' + restaurant?.info?.id} key={index} ><RestaurantCard restaurant={restaurant} key={index} user={user}/></Link>)
           })
         }
       </div>)}

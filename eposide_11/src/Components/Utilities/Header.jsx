@@ -27,7 +27,7 @@ const Header = () => {
             <li>Profile</li>
           </Link>
           <Link to="/instamart">
-          <li>Instamart</li></Link>
+            <li>Instamart</li></Link>
         </ul>
       </div>
     </div>

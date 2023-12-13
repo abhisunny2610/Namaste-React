@@ -1,6 +1,6 @@
 import Home from './Components/Pages/Home';
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import About from './Components/Pages/About';
 import { createBrowserRouter , RouterProvider, Outlet} from 'react-router-dom';
 import ErrorPage from './Components/Pages/ErrorPage';
@@ -35,6 +35,9 @@ const InstaMart = React.lazy(()=> import("./Components/Pages/InstaMart"))
 
 
 const Applayout = () => {
+
+  // const [user, setUser] = useState()
+
   return (
     <>
       <Header />
@@ -52,7 +55,10 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home user={{
+          sname : "Abhishek",
+          email : "abhishek463@gmail.com"
+        }}/>
       },
       {
         path: "/about",
