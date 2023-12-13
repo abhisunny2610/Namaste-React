@@ -1,8 +1,11 @@
 import React from 'react'
+import Shimmer from '../Component/Shimmer'
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <section>
+      <Shimmer />
+    </section>
   )
 }
 

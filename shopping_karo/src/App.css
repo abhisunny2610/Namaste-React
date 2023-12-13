@@ -29,6 +29,12 @@ section {
     padding: 4rem 40px;
 }
 
+.p-link{
+    text-decoration: none;
+    color: var(--black);
+}
+
+
 /* -------------header style style---------*/
 
 .header {
@@ -49,6 +55,10 @@ section {
             font-weight: 600;
             letter-spacing: 2px;
             font-size: x-large;
+
+            > span{
+                color: var(--orange);
+            }
         }
     }
 
@@ -174,6 +184,7 @@ section {
     width: 250px;
     border: 1px solid var(--gray-dark);
     font-family: var(--opensans-font);
+    transition: transform 0.3s ease-in-out;
 
     > img{
         width: 249px;
@@ -183,6 +194,7 @@ section {
     > .description{
         font-size: var(--fs-14);
         padding: 0px 10px;
+        letter-spacing: 0.5px;
     }
 
     > .price{
@@ -191,4 +203,86 @@ section {
     }
 }
 
+.product-card:hover{
+    transform: scale(1.02);
+}
+
 /* -------------product card style finish---------*/
+
+/* -------------footer style start---------*/
+
+.footer{
+    background-color: var(--white);
+    text-align: center;
+    padding: 15px 0px;
+    margin-bottom: 0px;
+    font-family: var(--opensans-font);
+    letter-spacing: 1.5px;
+    cursor: context-menu;
+    border-top: 1px solid var(--black);
+    font-size: var(--fs-14);
+    
+    > span, a{
+        text-decoration: none;
+        color: var(--black);
+        font-weight: 600;
+
+        > .k{
+            color: var(--orange);
+        }
+    }
+
+}
+
+/* -------------footer style finish---------*/
+
+
+/* -------------shimmer style start---------*/
+
+.shimmer-card{
+    width: 250px;
+    height: 250px;
+    padding: 20px 10px;
+    /* background-color: #fff; */
+    border-color: #d3d5df;
+    box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
+}
+
+.shimmer-card .price{
+    width: 80%;
+    margin-top: 10px;
+}
+
+.shimmer-card .desc {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.shimmer-card .img {
+    height: 144px;
+    width: 250px;
+}
+
+.stroke {
+    height: 15px;
+    background: #d3d1d1;
+}
+
+.animate {
+    animation: shimmer 3s;
+    animation-iteration-count: infinite;
+    background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+    background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+    from {
+        background-position: -1000px 0;
+    }
+
+    to {
+        background-position: 1000px 0;
+    }
+}
+
+/* -------------shimmer style finish---------*/

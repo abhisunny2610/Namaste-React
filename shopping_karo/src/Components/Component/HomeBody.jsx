@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard'
+import { Link } from 'react-router-dom'
+import Shimmer from './Shimmer'
 
 
 const HomeBody = () => {
@@ -13,11 +15,11 @@ const HomeBody = () => {
     async function getProducts() {
         const response = await fetch(" https://dummyjson.com/products?skip=0&limit=100")
         const json = await response.json()
-        setAllProducts(json.products)
+        setAllProducts(json?.products)
     }
 
     return (
-        <div className='home-body'>
+        <div className='home-body mt-2'>
             <div className="category d-flex justify-content-between align-items-center">
                 <div className="buttons">
                     <button>NEW</button>
@@ -38,16 +40,18 @@ const HomeBody = () => {
             </div>
 
             <div className="coupon text-center mt-3">
-                <p>FREE SHIPPING <span>WITH CODE</span> SHIP50 <span className='details'>VIEW DETAILS</span></p>
+                <p>20% OFF ON EVERY PRODUCT <span>WITH CODE</span> SOGET20 <span className='details'>VIEW DETAILS</span></p>
             </div>
 
-            <div className="products d-flex flex-wrap gap-4 justify-content-center mt-5">
-                {
-                    allProducts.slice(36,60).map(product => {
-                       return <ProductCard product={product} key={product.id}/>
-                    })
-                }
-            </div>
+            {
+                allProducts?.length === 0 ? (<Shimmer />) : (<div className="products d-flex flex-wrap gap-4 justify-content-center mt-5">
+                    {
+                        allProducts.slice(36, 64).map(product => {
+                            return <Link to={'product/' + product?.id} key={product.id} className='p-link'><ProductCard product={product} key={product?.id} /></Link>
+                        })
+                    }
+                </div>)
+            }
         </div>
     )
 }
