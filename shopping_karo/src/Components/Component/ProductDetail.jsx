@@ -1,7 +1,11 @@
 import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ProductContext } from '../../Context/ProductContext'
-import { SINGLE_PRODUCT_API } from '../../Helper'
+import { SINGLE_PRODUCT_API, randomNumberInRange } from '../../Helper'
+import img1 from '../../Images/icon-amazon-delivered._CB485933725_.png'
+import img2 from '../../Images/icon-cod._CB485937110_.png'
+import img3 from '../../Images/icon-returns._CB484059092_.png'
+import img4 from '../../Images/trust_icon_free_shipping_81px._CB630870460_.png'
 
 const ProductDetail = () => {
 
@@ -21,14 +25,18 @@ const ProductDetail = () => {
   return (
     <div className="product-details d-flex gap-4 mt-4">
       <div className="images">
-        <img src={thumbnail} alt="" />
+        <img src={images[0]} alt="" />
       </div>
       <div className="details">
         <h3 className='title text-capitalize fw-bold'>{title}</h3>
         <p className='description text-capitalize'>{description}</p>
         <p className='brand'>Brand: {brand}</p>
-        <p className='rating'>{rating}</p>
-        <p className='sale'> bought in past month</p>
+        <p className='rating'>{rating}
+        <span className='mx-4'>
+        {randomNumberInRange(0,200)} ratings
+        </span>
+        </p>
+        <p className='sale'>{randomNumberInRange(0,100)} bought in past month</p>
 
         <hr />
 
@@ -40,20 +48,24 @@ const ProductDetail = () => {
         <p>Inclusive of all taxes</p>
         <hr />
 
-        <div className="on-delivery d-flex">
-          <div className="delivery">
+        <div className="on-delivery d-flex justify-content-center align-items-center">
+          <div className="delivery text-center">
+            <img src={img2} alt="delivery" width="50px"/>
             <p>Pay on Delivery</p>
           </div>
 
-          <div className="exchange">
+          <div className="exchange text-center">
+            <img src={img3} alt="return"  width="50px"/>
             <p>7 Days Return & Exhange</p>
           </div>
 
-          <div className="fast">
+          <div className="fast text-center">
+            <img src={img1} alt="fast"  width="50px"/>
             <p>Fast Delivery</p>
           </div>
 
-          <div className="free">
+          <div className="free text-center">
+            <img src={img4} alt="free"  width="50px"/>
             <p>Free Delivery</p>
           </div>
         </div>
@@ -63,7 +75,7 @@ const ProductDetail = () => {
           style: "currency",
           currency: "INR",
         }).format(price * 15) : " "}</h3>
-        <p className='free-desc'>FREE Delivery { } on orders dispatched by Shop Karo over { } 499</p>
+        <p className='free-desc'>FREE Delivery { } on orders dispatched by Shop Karo over { } ₹499</p>
         <p className='location'>Enter your location</p>
         <hr />
         {stock > 0 ? (<h4 className='instock'>In Stock</h4>) : (<h4 className='outofstock'>Out of Stock</h4>)}

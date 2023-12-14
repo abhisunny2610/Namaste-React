@@ -11,6 +11,7 @@
     --orange: rgb(253, 173, 23);
     --gray: rgb(247, 245, 245);
     --gray-dark: rgb(230, 230, 230);
+    --blue: rgb(38, 14, 95);
 }
 
 /* -------------common style ---------*/
@@ -291,13 +292,14 @@ section {
 
 .product-details{
 
-    height: 100vh;
+    height: fit-content;
     font-family: var(--opensans-font);
 
     > .images {
 
         > img{
             width: 400px;
+            height: 400px;
         }
 
     }
@@ -313,7 +315,7 @@ section {
         }
 
         > .brand{
-            color: var(--orange);
+            color: var(--blue);
         }
 
         > .description{
@@ -321,7 +323,14 @@ section {
         }
 
         > .sale{
-            font-size: var(--fs-14);
+            font-size: 12px;
+            /* color: var(--blue); */
+            
+        }
+
+        > .on-delivery{
+            font-size: var(--fs-16);
+            color: var(--blue);
         }
     }
 
