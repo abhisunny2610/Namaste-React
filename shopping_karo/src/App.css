@@ -5,7 +5,7 @@
     --opensans-font: 'Open Sans', sans-serif;
     --black: #000;
     --white: #fff;
-    --fs-16 : 16px;
+    --fs-16: 16px;
     --fs-18: 18px;
     --fs-14: 14px;
     --orange: rgb(253, 173, 23);
@@ -22,7 +22,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: var(--gray);
 }
 
@@ -30,7 +30,7 @@ section {
     padding: 4rem 40px;
 }
 
-.p-link{
+.p-link {
     text-decoration: none;
     color: var(--black);
 }
@@ -57,7 +57,7 @@ section {
             letter-spacing: 2px;
             font-size: x-large;
 
-            > span{
+            >span {
                 color: var(--orange);
             }
         }
@@ -76,7 +76,8 @@ section {
                 font-family: var(--opensans-font);
                 font-size: 16px;
             }
-            > a:active{
+
+            >a:active {
                 color: var(--orange);
             }
         }
@@ -105,14 +106,14 @@ section {
     font-family: var(--opensans-font);
     font-size: var(--fs-14);
     position: relative;
-    
-    > .category {
+
+    >.category {
         padding: 5px 10px;
         color: var(--white);
         background-color: var(--black);
 
         >.buttons {
-            
+
             >button {
                 outline: none;
                 cursor: context-menu;
@@ -124,14 +125,14 @@ section {
                 transition: all 0.3s ease-in-out;
             }
 
-            > button:hover{
+            >button:hover {
                 color: var(--orange);
             }
         }
 
-        > .search{
+        >.search {
 
-            > input{
+            >input {
                 width: 300px;
                 height: 2rem;
                 padding: 0px 5px;
@@ -140,11 +141,11 @@ section {
                 border-radius: 3px 0px 0px 3px;
             }
 
-            > input:focus{
+            >input:focus {
                 border: 1px solid var(--orange);
             }
 
-            > button{
+            >button {
                 height: 2rem;
                 outline: none;
                 border: none;
@@ -156,20 +157,20 @@ section {
         }
     }
 
-    > .coupon{
+    >.coupon {
         cursor: context-menu;
         border-bottom: 1px solid black;
         /* position: fixed; */
 
-        > p{
+        >p {
             font-size: var(--fs-16);
             font-weight: 600;
 
-            > span{
+            >span {
                 font-weight: 300;
             }
 
-            > .details{
+            >.details {
                 font-size: 12px;
                 margin-left: 5px;
             }
@@ -181,30 +182,30 @@ section {
 
 /* -------------product card style start---------*/
 
-.product-card{
+.product-card {
     width: 250px;
     border: 1px solid var(--gray-dark);
     font-family: var(--opensans-font);
     transition: transform 0.3s ease-in-out;
 
-    > img{
+    >img {
         width: 249px;
         height: 260px;
     }
 
-    > .description{
+    >.description {
         font-size: var(--fs-14);
         padding: 0px 10px;
         letter-spacing: 0.5px;
     }
 
-    > .price{
+    >.price {
         padding: 0px 10px;
         font-size: var(--fs-16);
     }
 }
 
-.product-card:hover{
+.product-card:hover {
     transform: scale(1.02);
 }
 
@@ -212,7 +213,7 @@ section {
 
 /* -------------footer style start---------*/
 
-.footer{
+.footer {
     background-color: var(--white);
     text-align: center;
     padding: 15px 0px;
@@ -222,13 +223,14 @@ section {
     cursor: context-menu;
     border-top: 1px solid var(--black);
     font-size: var(--fs-14);
-    
-    > span, a{
+
+    >span,
+    a {
         text-decoration: none;
         color: var(--black);
         font-weight: 600;
 
-        > .k{
+        >.k {
             color: var(--orange);
         }
     }
@@ -240,7 +242,7 @@ section {
 
 /* -------------shimmer style start---------*/
 
-.shimmer-card{
+.shimmer-card {
     width: 250px;
     height: 250px;
     padding: 20px 10px;
@@ -249,7 +251,7 @@ section {
     box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
 }
 
-.shimmer-card .price{
+.shimmer-card .price {
     width: 80%;
     margin-top: 10px;
 }
@@ -290,61 +292,61 @@ section {
 
 /* -------------single product style start---------*/
 
-.product-details{
+.product-details {
 
     height: fit-content;
     font-family: var(--opensans-font);
 
-    > .images {
+    >.images {
 
-        > img{
+        >img {
             width: 400px;
             height: 400px;
         }
 
     }
 
-    > .details{
+    >.details {
 
-        
+
 
         padding: 0px 10px;
 
-        > p{
+        >p {
             letter-spacing: 0.5px;
         }
 
-        > .brand{
+        >.brand {
             color: var(--blue);
         }
 
-        > .description{
+        >.description {
             font-size: var(--fs-14);
         }
 
-        > .sale{
+        >.sale {
             font-size: 12px;
             /* color: var(--blue); */
-            
+
         }
 
-        > .on-delivery{
+        >.on-delivery {
             font-size: var(--fs-16);
             color: var(--blue);
         }
     }
 
-    > .side-bar{
+    >.side-bar {
 
-        > p{
+        >p {
             font-size: var(--fs-14);
         }
 
-        > .location{
+        >.location {
             color: var(--orange);
         }
 
-        > button{
+        >button {
             width: 100%;
             border-radius: 50px;
             margin-top: 5px;
@@ -354,11 +356,11 @@ section {
             font-size: var(--fs-14);
         }
 
-        > .cart-button{
+        >.cart-button {
             background-color: rgb(241, 213, 30);
         }
 
-        > .buy-button{
+        >.buy-button {
             background-color: var(--orange);
         }
     }
@@ -366,3 +368,40 @@ section {
 }
 
 /* -------------single product style finish---------*/
+
+
+/* -------------about component style start---------*/
+
+.about-component {
+    font-family: var(--opensans-font);
+    height: 70vh;
+
+    > .heading {
+        
+        > h1 {
+            font-size: 50px;
+            font-weight: bolder;
+            color: var(--black);
+        }
+
+        > .shop{
+            background-color: var(--blue);
+            color: var(--gray);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        > h4 {
+            
+            color: var(--black);
+            
+            > span{
+                color: var(--orange);
+                font-weight: bold;
+            }
+        }
+    }
+
+}
+
+/* -------------about component style finish---------*/

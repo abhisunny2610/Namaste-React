@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ProductContext } from '../../Context/ProductContext'
 import { SINGLE_PRODUCT_API, randomNumberInRange } from '../../Helper'
@@ -6,6 +6,29 @@ import img1 from '../../Images/icon-amazon-delivered._CB485933725_.png'
 import img2 from '../../Images/icon-cod._CB485937110_.png'
 import img3 from '../../Images/icon-returns._CB484059092_.png'
 import img4 from '../../Images/trust_icon_free_shipping_81px._CB630870460_.png'
+
+
+const Image = ({ img = [] }) => {
+
+  const [thumbnail, setThumbnail] = useState(img[0])
+
+  return (
+    <div className="image-container">
+      <div className="image mb-5 d-flex justify-content-center">
+        <img src={thumbnail} alt="image" width="300px" height="300px" />
+      </div>
+
+      <div className="d-flex overflow-x-scroll gap-2">
+          {img.map((image, index) => {
+            return (<img src={image} alt="image" width="100px" height="100px" key={index}
+              onClick={() => setThumbnail(image)}
+            />)
+          })}
+      </div>
+    </div>
+  )
+}
+
 
 const ProductDetail = () => {
 
@@ -18,25 +41,26 @@ const ProductDetail = () => {
     getSingleProduct(SINGLE_PRODUCT_API + proId)
   }, [])
 
-  // console.log(singleProduct)
+  // console.log("sinngle data", singleProduct)
 
-  const mrp = price*15 + discountPercentage*10
+  const mrp = price * 15 + discountPercentage * 10
 
   return (
-    <div className="product-details d-flex gap-4 mt-4">
-      <div className="images">
-        <img src={thumbnail} alt={title} />
+    <div className="product-details gap-5 mt-4 row">
+      <div className="images col-4">
+        {/* <img src={thumbnail} alt={title} /> */}
+        <Image img={images} />
       </div>
-      <div className="details">
+      <div className="details col-4">
         <h3 className='title text-capitalize fw-bold'>{title}</h3>
         <p className='description text-capitalize'>{description}</p>
         <p className='brand'>Brand: {brand}</p>
         <p className='rating'>{rating}
-        <span className='mx-4'>
-        {randomNumberInRange(0,200)} ratings
-        </span>
+          <span className='mx-4'>
+            {randomNumberInRange(0, 200)} ratings
+          </span>
         </p>
-        <p className='sale'>{randomNumberInRange(0,100)} bought in past month</p>
+        <p className='sale'>{randomNumberInRange(0, 100)} bought in past month</p>
 
         <hr />
 
@@ -50,27 +74,27 @@ const ProductDetail = () => {
 
         <div className="on-delivery d-flex justify-content-center align-items-center">
           <div className="delivery text-center">
-            <img src={img2} alt="delivery" width="50px"/>
+            <img src={img2} alt="delivery" width="50px" />
             <p>Pay on Delivery</p>
           </div>
 
           <div className="exchange text-center">
-            <img src={img3} alt="return"  width="50px"/>
+            <img src={img3} alt="return" width="50px" />
             <p>7 Days Return & Exhange</p>
           </div>
 
           <div className="fast text-center">
-            <img src={img1} alt="fast"  width="50px"/>
+            <img src={img1} alt="fast" width="50px" />
             <p>Fast Delivery</p>
           </div>
 
           <div className="free text-center">
-            <img src={img4} alt="free"  width="50px"/>
+            <img src={img4} alt="free" width="50px" />
             <p>Free Delivery</p>
           </div>
         </div>
       </div>
-      <div className="side-bar shadow-sm p-3">
+      <div className="side-bar shadow-sm p-3 col-3">
         <h3 className='price'>{price > 0 ? new Intl.NumberFormat("en-IN", {
           style: "currency",
           currency: "INR",
