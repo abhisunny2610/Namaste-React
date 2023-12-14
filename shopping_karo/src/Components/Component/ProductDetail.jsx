@@ -18,14 +18,14 @@ const ProductDetail = () => {
     getSingleProduct(SINGLE_PRODUCT_API + proId)
   }, [])
 
-  console.log(singleProduct)
+  // console.log(singleProduct)
 
   const mrp = price*15 + discountPercentage*10
 
   return (
     <div className="product-details d-flex gap-4 mt-4">
       <div className="images">
-        <img src={images[0]} alt="" />
+        <img src={thumbnail} alt={title} />
       </div>
       <div className="details">
         <h3 className='title text-capitalize fw-bold'>{title}</h3>
