@@ -7,15 +7,16 @@ import About from './Components/Pages/About'
 import Cart from './Components/Pages/Cart'
 import Products from './Components/Pages/Products'
 import ProductDetails from './Components/Pages/ProductDetails';
+import { ProductProvider } from './Context/ProductContext';
 
 
 const Applayout = () => {
   return (
-    <>
-    <Header />
-    <Outlet />
-    <Footer />
-    </>
+    <ProductProvider>
+      <Header />
+      <Outlet />
+      <Footer />
+    </ProductProvider>
   )
 }
 
@@ -26,23 +27,23 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element : <Home />
+        element: <Home />
       },
       {
         path: "about",
-        element : <About />
+        element: <About />
       },
       {
-        path : "products",
-        element : <Products />
+        path: "products",
+        element: <Products />
       },
       {
-        path : "product/:pId",
-        element : <ProductDetails />
+        path: "product/:proId",
+        element: <ProductDetails />
       },
       {
-        path : "cart",
-        element : <Cart />
+        path: "cart",
+        element: <Cart />
       }
     ]
 
@@ -53,7 +54,7 @@ const appRouter = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-    <RouterProvider router={appRouter}/>
+      <RouterProvider router={appRouter} />
     </div>
   );
 }
