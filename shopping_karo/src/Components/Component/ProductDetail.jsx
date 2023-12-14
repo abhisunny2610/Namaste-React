@@ -6,32 +6,11 @@ import img1 from '../../Images/icon-amazon-delivered._CB485933725_.png'
 import img2 from '../../Images/icon-cod._CB485937110_.png'
 import img3 from '../../Images/icon-returns._CB484059092_.png'
 import img4 from '../../Images/trust_icon_free_shipping_81px._CB630870460_.png'
-
-
-const Image = ({ img = [] }) => {
-
-  const [thumbnail, setThumbnail] = useState(img[0])
-
-  return (
-    <div className="image-container">
-      <div className="image mb-5 d-flex justify-content-center">
-        <img src={thumbnail} alt="image" width="300px" height="300px" />
-      </div>
-
-      <div className="d-flex overflow-x-scroll gap-2">
-          {img.map((image, index) => {
-            return (<img src={image} alt="image" width="100px" height="100px" key={index}
-              onClick={() => setThumbnail(image)}
-            />)
-          })}
-      </div>
-    </div>
-  )
-}
-
+import Image from './Image'
 
 const ProductDetail = () => {
 
+  const [quantity, setQuantity] = useState(0)
   const { proId } = useParams()
   const { singleProduct, getSingleProduct } = useContext(ProductContext)
 
@@ -41,6 +20,14 @@ const ProductDetail = () => {
     getSingleProduct(SINGLE_PRODUCT_API + proId)
   }, [])
 
+  const setDecrease = () => {
+    quantity > 1 ? setQuantity(quantity - 1): setQuantity(1);
+  }
+
+  const setIncrease = () => {
+    quantity < stock ? setQuantity(quantity + 1): setQuantity(stock);
+  }
+
   // console.log("sinngle data", singleProduct)
 
   const mrp = price * 15 + discountPercentage * 10
@@ -48,7 +35,6 @@ const ProductDetail = () => {
   return (
     <div className="product-details gap-5 mt-4 row">
       <div className="images col-4">
-        {/* <img src={thumbnail} alt={title} /> */}
         <Image img={images} />
       </div>
       <div className="details col-4">
@@ -103,10 +89,23 @@ const ProductDetail = () => {
         <p className='location'>Enter your location</p>
         <hr />
         {stock > 0 ? (<h4 className='instock'>In Stock</h4>) : (<h4 className='outofstock'>Out of Stock</h4>)}
-        <button className='cart-button'>
-          Add to Cart
-        </button>
-        <button className='buy-button'>Buy Now</button>
+        {
+          stock > 0 ? (<>
+
+            <div className="quantity d-flex align-items-center">
+              <button className='btn btn-sm bg-secondary m-2' onClick={setIncrease}>+</button>
+              <div className="num fs-5">{quantity}</div>
+              <button className='btn btn-sm bg-secondary m-2' onClick={setDecrease}>-</button>
+            </div>
+
+            <button className='cart-button'>
+              Add to Cart
+            </button>
+            <button className='buy-button'>Buy Now</button>
+          </>
+          ) : ""
+
+        }
       </div>
     </div>
   )
