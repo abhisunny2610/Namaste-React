@@ -10,7 +10,8 @@ import RestaurantMenu from './Components/Pages/RestaurantMenu';
 import Profile from './Components/Pages/Profile';
 import Shimmer from './Components/Utilities/Shimmer';
 import UserContext from './Utils/UserContext';
-
+import { Provider } from 'react-redux';
+import store from './Utils/store';
 
 /* 
 
@@ -43,13 +44,15 @@ const Applayout = () => {
   })
 
   return (
-    <UserContext.Provider value={
+    <Provider store={store}>
+      <UserContext.Provider value={
       user
     }>
       <Header />
       <Outlet />
       <Footer />
     </UserContext.Provider>
+    </Provider>
   )
 }
 
