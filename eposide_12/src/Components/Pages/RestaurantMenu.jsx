@@ -51,7 +51,7 @@ const RestaurantMenu = () => {
                         </p>
                     </div>
                     <div className="menu-items-list">
-                        {menuItems.map((item) => ( 
+                        {menuItems.map((item) => (
                             <div className="menu-item" key={item?.id}>
                                 <div className="menu-item-details">
                                     <h3 className="item-title">{item?.name}</h3>

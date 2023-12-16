@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom';
 import { filterData } from '../../Utils/Hepler';
 import useOnline from '../../Hooks/useOnline';
 
-const RestaurantCard = ({ restaurant, user }) => {
+const RestaurantCard = ({ restaurant }) => {
 
   const { cuisines, name, cloudinaryImageId, avgRating, areaName, sla } = restaurant?.info
-  const {sname, email} = user
 
   return <div className="rest-card">
     <img src={IMAGE_CDN + cloudinaryImageId} alt="restaurant" />
@@ -63,7 +62,7 @@ const HomeBody = () => {
 
   if (!allRest) return null
 
-  return <section className='home-body mt-16'>
+  return <div className='home-body'>
 
     <div className='search'>
       <input type="text" className='search-input' placeholder='Search for Restaurant and Food' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
@@ -82,7 +81,7 @@ const HomeBody = () => {
           })
         }
       </div>)}
-  </section>
+  </div>
 }
 
 export default HomeBody

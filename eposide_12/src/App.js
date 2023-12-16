@@ -1,17 +1,17 @@
 import Home from './Components/Pages/Home';
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import About from './Components/Pages/About';
-import { createBrowserRouter , RouterProvider, Outlet} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import ErrorPage from './Components/Pages/ErrorPage';
 import Header from './Components/Utilities/Header';
 import Footer from './Components/Utilities/Footer';
 import RestaurantMenu from './Components/Pages/RestaurantMenu';
 import Profile from './Components/Pages/Profile';
 import Shimmer from './Components/Utilities/Shimmer';
-import UserContext from './Utils/UserContext';
+import Cart from './Components/Pages/Cart';
 import { Provider } from 'react-redux';
-import store from './Utils/store';
+import store from './Components/store';
 
 /* 
 
@@ -33,25 +33,17 @@ In a typical React application, all components are bundled together and loaded w
 
 */
 
-const InstaMart = React.lazy(()=> import("./Components/Pages/InstaMart"))
+const InstaMart = React.lazy(() => import("./Components/Pages/InstaMart"))
 
 
 const Applayout = () => {
-
-  const [user, setUser] = useState({
-    name : "abhishek singh",
-    email : "abhisunny453@gmail.com"
-  })
-
   return (
     <Provider store={store}>
-      <UserContext.Provider value={
-      user
-    }>
+
       <Header />
       <Outlet />
       <Footer />
-    </UserContext.Provider>
+
     </Provider>
   )
 }
@@ -59,7 +51,7 @@ const Applayout = () => {
 const appRouter = createBrowserRouter([
   {
     path: '/',
-    element : <Applayout />,
+    element: <Applayout />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -68,19 +60,23 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element : <About />
+        element: <About />
       },
       {
-        path : "/restaurant/:resId",
-        element : <RestaurantMenu />
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />
       },
       {
-        path : "profile",
-        element : <Profile />
+        path: "profile",
+        element: <Profile />
       },
       {
         path: "instamart",
-        element : <React.Suspense fallback={<Shimmer />}><InstaMart /></React.Suspense>
+        element: <React.Suspense fallback={<Shimmer />}><InstaMart /></React.Suspense>
+      },
+      {
+        path: "cart",
+        element: <Cart />
       }
     ]
   },
