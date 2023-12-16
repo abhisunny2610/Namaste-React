@@ -5,14 +5,16 @@ import Error from './Pages/Error'
 import Watch from './Pages/Watch'
 import Home from './Pages/Home'
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './Redux/Store';
 
 const Applayout = () => {
   return (
-    <>
+    <Provider store={store}>
     <Header />
     <Outlet />
     <Footer />
-    </>
+    </Provider>
   )
 }
 
