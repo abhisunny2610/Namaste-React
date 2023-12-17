@@ -12,7 +12,7 @@ const Header = () => {
   }
 
   return (
-    <nav className='d-flex shadow z-3 justify-content-between align-items-center px-4 '>
+    <nav className='d-flex bg-light shadow z-3 justify-content-between align-items-center px-4 '>
       <div className="logo d-flex align-items-center gap-3">
       <i className="fa-solid fa-bars fs-5" onClick={()=> toggleMenuHandler()}></i>
         <img src={YoutubeLogo} alt="logo" width="100px"/>

@@ -8,6 +8,7 @@
     --grey: rgb(238, 236, 236);
 }
 
+
 section{
     padding: 4.5rem 0;
 }
@@ -57,10 +58,14 @@ aside a{
     margin-left: 140px;
 }
 
+
+
 .buttons{
     /* display: flex; */
     gap: 10px;
-    
+    position: fixed;
+    background-color: white;
+    z-index: 999;
 
     > button{
         padding: 4px 10px;
@@ -68,5 +73,34 @@ aside a{
         background-color: var(--grey);
         font-weight: 500;
         font-size: 16px;
+    }
+}
+
+.videocard{
+    /* margin-top: 50px; */
+    width: 340px;
+    height: 308px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    > .thumbnail{
+        > img{
+            /* width: 230px; */
+            /* height: 160px; */
+            border-radius: 10px;
+        }
+    }
+
+    > .details{
+        > .title{
+            font-size: 16px;
+            /* margin-bottom: 0px; */
+        }
+
+        > p{
+            font-size: 14px;
+            /* margin-top: 0px; */
+            margin-bottom: 2px;
+        }
     }
 }

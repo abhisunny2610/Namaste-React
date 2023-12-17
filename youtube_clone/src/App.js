@@ -29,7 +29,7 @@ const appRouter = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "watch/:vId",
+        path: "watch",
         element: <Watch />
       }
     ]
