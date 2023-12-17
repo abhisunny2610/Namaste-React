@@ -1,30 +1,30 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --grey: rgb(238, 236, 236);
 }
 
 
-section{
+section {
     padding: 4.5rem 0;
 }
 
-nav{
+nav {
     width: 100%;
     height: 3.5rem;
     position: fixed;
 }
 
-nav .search input{
+nav .search input {
     width: 500px;
     border-radius: 50px 0px 0px 50px;
 }
 
-nav .search button{
+nav .search button {
     border-radius: 0px 50px 50px 0px;
     width: 50px;
     background-color: var(--grey);
@@ -38,14 +38,14 @@ nav .search .mic i {
     border-radius: 50%;
 }
 
-aside{
+aside {
     width: 100px;
     /* background-color: bisque; */
     height: 100%;
     position: fixed;
 }
 
-aside a{
+aside a {
     text-decoration: none;
     color: black;
     font-size: 14px;
@@ -53,21 +53,21 @@ aside a{
 
 }
 
-.video-container{
+.video-container {
     margin-top: 0px;
     margin-left: 140px;
 }
 
 
 
-.buttons{
+.buttons {
     /* display: flex; */
     gap: 10px;
     position: fixed;
     background-color: white;
     z-index: 999;
 
-    > button{
+    >button {
         padding: 4px 10px;
         border-radius: 10px;
         background-color: var(--grey);
@@ -76,31 +76,104 @@ aside a{
     }
 }
 
-.videocard{
+.videocard {
     /* margin-top: 50px; */
     width: 340px;
     height: 308px;
     padding: 10px;
     margin-bottom: 10px;
 
-    > .thumbnail{
-        > img{
+    >.thumbnail {
+        >img {
             /* width: 230px; */
             /* height: 160px; */
             border-radius: 10px;
         }
     }
 
-    > .details{
-        > .title{
+    >.details {
+        >.title {
             font-size: 16px;
             /* margin-bottom: 0px; */
         }
 
-        > p{
+        >p {
             font-size: 14px;
             /* margin-top: 0px; */
             margin-bottom: 2px;
         }
+    }
+}
+
+.watch {
+    width: 750px;
+
+    > iframe{
+        border-radius: 10px;
+    }
+
+    >.name {
+        >h4 {
+            font-size: 18px;
+        }
+    }
+
+    >.details {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        >.channel {
+
+            display: flex;
+            align-items: center;
+
+            >img {
+                background-color: black;
+                border-radius: 50px;
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
+
+            >.div {
+                >p {
+                    margin: 0px;
+                    font-size: 14px;
+                }
+            }
+
+            >button {
+                background-color: black;
+                color: white;
+                border-radius: 50px;
+                margin-left: 30px;
+            }
+        }
+
+
+        > .watch-buttons{
+            
+            > button{
+                background-color: var(--grey);
+            }
+
+            > .like{
+                border-radius: 50px 0px 0px 50px ;
+            }
+
+            > .dislike{
+                border-radius: 0px 50px 50px 0px;
+                border-left: 2px solid lightgray;
+            }
+            
+            > .share{
+                border-radius: 50px;
+                margin-left: 10px;
+            }
+        }
+
     }
 }

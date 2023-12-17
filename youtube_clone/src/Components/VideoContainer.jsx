@@ -20,8 +20,6 @@ const VideoContainer = () => {
     setVideos(data)
   }
 
-  console.log("videos", video)
-
   return (
     <div className='video-container'>
       <ButtonList />

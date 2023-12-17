@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import useGetVideoDetails from '../Hooks/useGetVideoDetails'
 import { formatViews } from '../helper'
+import profile from '../Assests/gymbackground.jpg'
 
 const Watch = () => {
 
@@ -9,27 +10,37 @@ const Watch = () => {
 
   const videoDetails = useGetVideoDetails(search.get("v"))
 
-  console.log("dea", videoDetails)
+  console.log(videoDetails)
+
+  // const {channelTitle, title, thumbnails} = videoDetails?.snippet
+
+  // const formattedViews = formatViews(videoDetails?.statistics?.viewCount)
 
   return (
     <>
-      <section className='watch'>
-        <iframe width="900" height="400" src={"https://www.youtube.com/embed/" + search.get("v")} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+      <section className='watch px-4 bg-light'>
+        <iframe width="700" height="350" src={"https://www.youtube.com/embed/" + search.get("v")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         <div className="name mt-2">
-          <h4 className='text-dark'>{videoDetails?.snippet?.title}</h4>
+          <h4 className='text-dark'>"KAATERA Official 4K Trailer | Darshan | Aradhanaa | Tharun | Rockline Venkatesh | V.Harikrishna"</h4>
         </div>
         <div className="details">
-            <img src="" alt="" />
           <div className="channel">
-            <p className='channel-name'>{videoDetails?.snippet?.channelTitle}</p>
-            <p className='subscribe'>{formatViews(videoDetails?.statistics?.viewCount)}</p>
+            <img src={profile} alt="" />
+            <div className='div'>
+              <p className='channel-name fw-bold'>Abhishek</p>
+              <p className='views'>{formatViews(78345659)}</p>
+            </div>
+            <button className='btn subscribw'>Subscribe</button>
           </div>
-          <button>Subscribe</button>
 
-          <button>483</button>
-          <button>dislike</button>
-          <button>share</button>
+          <div className="watch-buttons d-flex align-items-center">
+            <button className='btn like'><i class="fa-regular fa-thumbs-up"></i> 483</button>
+            <button className='btn dislike'><i class="fa-regular fa-thumbs-down fa-flip-horizontal"></i></button>
+            <button className='btn share'><i class="fa-solid fa-share"></i> share</button>
+          </div>
         </div>
+
+
       </section>
     </>
   )
