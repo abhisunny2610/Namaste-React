@@ -3,7 +3,7 @@ import { apiKey } from "../Service/api"
 
 const useGetVideoDetails = (id) => {
 
-  const [videoDetail, setVideoDetail] = useState([])
+  const [videoDetail, setVideoDetail] = useState(null)
 
   useEffect(() => {
     getVideoDetails()
@@ -13,7 +13,7 @@ const useGetVideoDetails = (id) => {
     const responce = await fetch("https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" + id + "&key=" + apiKey)
     const json = await responce.json()
     const data = json.items
-    setVideoDetail(data)
+    setVideoDetail(data[0])
   }
   
   return videoDetail
