@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { swiggy_api_URL, IMAGE_CDN} from '../config';
+import { swiggy_api_URL, IMAGE_CDN } from '../config';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { filterData } from '../../Utils/Hepler';
@@ -29,11 +29,16 @@ const HomeBody = () => {
   const [errorMessage, setErrorMessage] = useState("")
 
   async function fetchAPI() {
-    const response = await fetch(swiggy_api_URL)
-    const json = await response.json();
-    const data = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    setFilterRest(data)
-    setAllRest(data)
+    try {
+      const response = await fetch(swiggy_api_URL, { mode: 'no-cors' });
+      const json = await response.json();
+      const data = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      setFilterRest(data)
+      setAllRest(data)
+    }
+    catch (e) {
+      console.log(e)
+    }
   }
 
   useEffect(() => {
@@ -56,8 +61,8 @@ const HomeBody = () => {
   }
 
   const offline = useOnline()
-  if(!offline){
-    return <h1 style={{textAlign: "center", margin: "50px 0px"}}>Offline, please check your internet connection</h1>
+  if (!offline) {
+    return <h1 style={{ textAlign: "center", margin: "50px 0px" }}>Offline, please check your internet connection</h1>
   }
 
   if (!allRest) return null

@@ -177,3 +177,32 @@ aside a {
 
     }
 }
+
+
+/* -------------footer style start---------*/
+
+.footer {
+    background-color: var(--white);
+    text-align: center;
+    padding: 15px 0px;
+    margin-bottom: 0px;
+    font-family: var(--opensans-font);
+    letter-spacing: 1.5px;
+    cursor: context-menu;
+    border-top: 1px solid black;
+    font-size: var(--fs-14);
+
+    >span,
+    a {
+        text-decoration: none;
+        color: var(--black);
+        font-weight: 600;
+
+        >.k {
+            color: var(--orange);
+        }
+    }
+
+}
+
+/* -------------footer style finish---------*/

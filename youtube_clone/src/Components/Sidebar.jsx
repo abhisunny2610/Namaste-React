@@ -9,7 +9,7 @@ const Sidebar = () => {
     if (!isMenuOpen) return null
 
     return (
-        <aside className='fiexd d-flex flex-column border gap-4'>
+        <aside className='fiexd d-flex flex-column gap-4'>
             <Link>Home</Link>
             <Link>Shorts</Link>
             <Link>Subscription</Link>

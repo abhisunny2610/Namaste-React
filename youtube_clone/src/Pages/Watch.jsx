@@ -21,14 +21,14 @@ const Watch = () => {
       <section className='watch px-4 bg-light'>
         <iframe width="700" height="350" src={"https://www.youtube.com/embed/" + search.get("v")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         <div className="name mt-2">
-          <h4 className='text-dark'>"KAATERA Official 4K Trailer | Darshan | Aradhanaa | Tharun | Rockline Venkatesh | V.Harikrishna"</h4>
+          <h4 className='text-dark'>{videoDetails?.snippet?.title}</h4>
         </div>
         <div className="details">
           <div className="channel">
             <img src={profile} alt="" />
             <div className='div'>
-              <p className='channel-name fw-bold'>Abhishek</p>
-              <p className='views'>{formatViews(78345659)}</p>
+              <p className='channel-name fw-bold'>{videoDetails?.snippet?.channelTitle}</p>
+              <p className='views'>{formatViews(videoDetails?.statistics?.viewCount)}</p>
             </div>
             <button className='btn subscribw'>Subscribe</button>
           </div>
