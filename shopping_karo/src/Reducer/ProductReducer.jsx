@@ -17,7 +17,7 @@ const ProductReducer = (state, action) => {
         case "SINGLE_PRODUCT":
             return {
                 ...state,
-                isError: action.payload,
+                isError: false,
                 singleProduct: action.payload
             }
 

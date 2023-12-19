@@ -8,14 +8,17 @@ import Cart from './Components/Pages/Cart'
 import Products from './Components/Pages/Products'
 import ProductDetails from './Components/Pages/ProductDetails';
 import { ProductProvider } from './Context/ProductContext';
+import { FilterProvider } from './Context/FilterContext';
 
 
 const Applayout = () => {
   return (
     <ProductProvider>
-      <Header />
-      <Outlet />
-      <Footer />
+      <FilterProvider>
+        <Header />
+        <Outlet />
+        <Footer />
+      </FilterProvider>
     </ProductProvider>
   )
 }
