@@ -16,11 +16,11 @@ const Applayout = () => {
   return (
     <ProductProvider>
       <FilterProvider>
-        <CartProvider>
+        {/* <CartProvider> */}
         <Header />
         <Outlet />
         <Footer />
-        </CartProvider>
+        {/* </CartProvider> */}
       </FilterProvider>
     </ProductProvider>
   )
