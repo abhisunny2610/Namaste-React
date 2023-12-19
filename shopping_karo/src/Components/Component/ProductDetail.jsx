@@ -46,7 +46,7 @@ const ProductDetail = () => {
         <h3 className='price'><span className='discount text-danger text-truncate fw-light fs-5'>-{discountPercentage}%</span>  {price > 0 ? new Intl.NumberFormat("en-IN", {
           style: "currency",
           currency: "INR",
-        }).format(price * 15) : " "}</h3>
+        }).format(price) : " "}</h3>
         <p className='mrp'>M.R.P <span className='text-decoration-line-through'>₹ {mrp}</span></p>
         <p>Inclusive of all taxes</p>
         <hr />
@@ -77,7 +77,7 @@ const ProductDetail = () => {
         <h3 className='price'>{price > 0 ? new Intl.NumberFormat("en-IN", {
           style: "currency",
           currency: "INR",
-        }).format(price * 15) : " "}</h3>
+        }).format(price) : " "}</h3>
         <p className='free-desc'>FREE Delivery { } on orders dispatched by Shop Karo over { } ₹499</p>
         <p className='location'>Enter your location</p>
         <hr />

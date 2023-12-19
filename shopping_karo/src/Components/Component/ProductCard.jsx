@@ -11,7 +11,7 @@ const ProductCard = ({product}) => {
       <h3 className='price fs-5'><span className='discount text-danger text-truncate fw-light fs-6'>-{discountPercentage}%</span>  {price > 0 ? new Intl.NumberFormat("en-IN", {
           style: "currency",
           currency: "INR",
-        }).format(price * 15) : " "}</h3>
+        }).format(price) : " "}</h3>
     </div>
   )
 }
