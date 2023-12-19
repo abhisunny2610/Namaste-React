@@ -8,12 +8,12 @@ const ShortProducts = () => {
   return (
     <>
         <form action="">
-            <label htmlFor="sort"></label>
+            <label htmlFor="sort" className='mx-2'>Sort by: Featured</label>
             <select name="sort" id="sort" onClick={sorting}>
-                <option value="lowest">price(lowest)</option>
-                <option value="highest">price(highest)</option>
-                <option value="a-z">price(a-z)</option>
-                <option value="z-a">price(z-a)</option>
+                <option value="lowest">Price: Low to High</option>
+                <option value="highest">Price: High to Low</option>
+                <option value="a-z">Name: A - Z</option>
+                <option value="z-a">Name: Z - A</option>
             </select>
         </form>
     </>

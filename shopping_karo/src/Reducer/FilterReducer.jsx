@@ -11,8 +11,6 @@ const FilterReducer = (state, action) => {
             const userSortValue = document.getElementById("sort")
             const sort_value = userSortValue[userSortValue.selectedIndex].value
 
-            console.log(sort_value)
-
             return{
                 ...state,
                 sorting_value: sort_value,
@@ -20,17 +18,31 @@ const FilterReducer = (state, action) => {
 
         case "SORTING_PRODUCTS":
             let newSortData;
-            let tempsortProduct = [action.payload]
+            let tempsortProduct = [...action.payload]
 
             if(state.sorting_value == "a-z"){
-                newSortData = tempsortProduct.sort((a,b) => {
-                   return a.title.localeCompare(b)
-                })
+                newSortData = tempsortProduct.sort((a,b) =>  a.title.localeCompare(b.title)
+                )
+            }
+
+            if(state.sorting_value == "z-a"){
+                newSortData = tempsortProduct.sort((a,b) =>  b.title.localeCompare(a.title)
+                )
+            }
+
+            if(state.sorting_value == "lowest"){
+                newSortData = tempsortProduct.sort((a,b) =>  a.price - b.price
+                )
+            }
+
+            if(state.sorting_value == "highest"){
+                newSortData = tempsortProduct.sort((a,b) =>  b.price - a.price
+                )
             }
 
             return {
                 ...state,
-                filter_products: newSortData
+                filter_products: newSortData,
             }
     
         default:

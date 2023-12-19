@@ -38,6 +38,10 @@ section {
 
 /* -------------header style style---------*/
 
+.product-header{
+    padding: 10px 40px;
+}
+
 .header {
     background-color: var(--white);
     width: 100%;
