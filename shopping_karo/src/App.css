@@ -350,22 +350,27 @@ section {
             color: var(--orange);
         }
 
-        >button {
-            width: 100%;
-            border-radius: 50px;
-            margin-top: 5px;
-            outline: none;
-            border: none;
-            height: 2rem;
-            font-size: var(--fs-14);
-        }
+       
 
-        >.cart-button {
-            background-color: rgb(241, 213, 30);
-        }
+        > a{
 
-        >.buy-button {
-            background-color: var(--orange);
+              >button {
+                width: 100%;
+                border-radius: 50px;
+                margin-top: 5px;
+                outline: none;
+                border: none;
+                height: 2rem;
+                font-size: var(--fs-14);
+            }
+
+            >.cart-button {
+                background-color: rgb(241, 213, 30);
+            }
+    
+            >.buy-button {
+                background-color: var(--orange);
+            }
         }
     }
 

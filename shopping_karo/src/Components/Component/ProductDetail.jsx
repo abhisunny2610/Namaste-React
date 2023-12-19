@@ -83,7 +83,7 @@ const ProductDetail = () => {
         <hr />
         {stock > 0 ? (<h4 className='instock'>In Stock</h4>) : (<h4 className='outofstock'>Out of Stock</h4>)}
         {
-          stock > 0 && <AddToCart stock={stock} />
+          stock > 0 && <AddToCart stock={stock} product={singleProduct} />
           }
       </div>
     </div>
