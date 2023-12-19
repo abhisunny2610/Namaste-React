@@ -25,6 +25,41 @@ const CartReducer = (state, action) => {
                 cart: updatedCart
             }
 
+        case "SUB_TOTAL":
+            let totalprice = state.cart.reduce((initialValue, curElem) => {
+                let {price, quantity} = curElem
+
+                initialValue = initialValue + price * quantity
+
+                return initialValue
+            }, 0)  
+
+            // console.log("total", totalprice)
+
+            return{
+                ...state,
+                subtotal : totalprice
+            }
+
+        case "TOTAL_ITEM":
+
+            let total_items = state.cart.reduce((inti, curElem)=> {
+                let {quantity} = curElem
+                inti = inti + quantity
+                return inti
+            }, 0 )
+
+            return {
+                ...state,
+                total_items
+            }
+
+        case "CLEAR_CART":
+            return{
+                ...state,
+                cart: []
+            }
+
         default:
             return state
     }

@@ -1,12 +1,12 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import CartReducer from "../Reducer/CartReducer";
 
 const CartContext =  createContext()
 
 const InitialState = {
     cart: [],
-    total_items: '',
-    subtotal : '',
+    total_items: 0,
+    subtotal : 0,
 }
 
 const CartProvider = ({children}) => {
@@ -21,7 +21,16 @@ const CartProvider = ({children}) => {
         dispatch({type: "REMOVE_ITEM", payload:id})
     }
 
-    return <CartContext.Provider value={{...state,removeItem, addToCart}}>{children}</CartContext.Provider>
+    const clearCart = () => {
+        dispatch({type: "CLEAR_CART"})
+    }
+
+    useEffect(()=> {
+        dispatch({type:"SUB_TOTAL"})
+        dispatch({type:"TOTAL_ITEM"})
+    }, [state.cart])
+
+    return <CartContext.Provider value={{...state,removeItem, addToCart, clearCart}}>{children}</CartContext.Provider>
 }
 
 export {CartContext, CartProvider}
