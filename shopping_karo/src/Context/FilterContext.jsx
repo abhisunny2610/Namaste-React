@@ -9,7 +9,10 @@ const FilterContext = createContext()
 const Initialstate= {
     filter_products : [],
     all_products: [],
-    sorting_value: "lowest"
+    sorting_value: "lowest",
+    filter: {
+        value
+    }
 }
 
 const FilterProvider = ({ children }) => {

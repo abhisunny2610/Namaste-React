@@ -429,3 +429,10 @@ section {
 /* -------------about component style finish---------*/
 
   
+
+.carousel img{
+    width: 90%;
+    height: 360px;
+    transition: all 0.5s ease-in;
+    overflow-x: scroll;
+}
