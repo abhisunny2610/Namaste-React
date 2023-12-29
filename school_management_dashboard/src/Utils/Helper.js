@@ -4,9 +4,8 @@ export const TeacherColumns = [
     { key: 'age', title: 'AGE' },
     { key: 'department', title: 'DEPARTMENT' },
     { key: 'gender', title: 'GENDER' },
-    { key: 'email', title: 'EMAIL' },
     { key: 'phone', title: 'PHONE' },
-    { key: 'dob', title: 'DOB' },
+    { key: 'birthdate', title: 'BIRTHDATE' },
     { key: 'address', title: 'ADDRESS' },
     { key: 'university', title: 'UNIVERSITY' },
 ]
