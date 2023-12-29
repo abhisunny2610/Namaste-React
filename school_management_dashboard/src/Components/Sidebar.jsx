@@ -42,8 +42,6 @@ const Sidebar = () => {
     dispatch(toggleMenu())
   }
 
-  console.log(isMenuOpen)
-
   return (
     <div className="containers">
       <div className="sidebar" style={{width: isMenuOpen ? "200px" : "50px"}}>
@@ -55,7 +53,7 @@ const Sidebar = () => {
         </div>
         {
           menuItems.map((items, index) => {
-           return <NavLink to={items.path} key={index} className="link" activeclassname="active">
+           return <NavLink to={items.path} key={index} className="link" activeclassname="active" title={items.name}>
               <div className="icon">{items.icon}</div>
               <div style={{display: isMenuOpen ? "block": "none"}} className="link_text">{items.name}</div>
             </NavLink>
