@@ -17,7 +17,7 @@ const ShortProducts = () => {
             </select>
         </form>
     </>
-  )
+  ) 
 }
 
 export default ShortProducts

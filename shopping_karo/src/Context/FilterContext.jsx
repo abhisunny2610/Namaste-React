@@ -10,9 +10,9 @@ const Initialstate= {
     filter_products : [],
     all_products: [],
     sorting_value: "lowest",
-    filter: {
-        value
-    }
+    // filter: { 
+    //     value
+    // }
 }
 
 const FilterProvider = ({ children }) => {

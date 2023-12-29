@@ -20,7 +20,7 @@ const FilterReducer = (state, action) => {
             let newSortData;
             let tempsortProduct = [...action.payload]
 
-            if(state.sorting_value === "a-z"){
+            if(state.sorting_value === "a-z"){ 
                 newSortData = tempsortProduct.sort((a,b) =>  a.title.localeCompare(b.title)
                 )
             }
