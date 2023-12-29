@@ -9,12 +9,14 @@ import Student from './Pages/Student';
 import Employee from './Pages/Employee';
 import Notice from './Pages/Notice';
 import store from './Redux/Store';
+import TopHeader from './Components/TopHeader';
 
 const AppLayout = () => {
   
   return (
     <Provider store={store}>
       <Sidebar />
+      {/* <TopHeader /> */}
       <section>
         <Outlet />
       </section>

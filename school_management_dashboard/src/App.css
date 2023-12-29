@@ -1,16 +1,17 @@
 *{
-    margin:0;
-    padding:0;
-    text-decoration: none;
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
 }
 
 /*---------side bar style----------*/
 .containers{
-    position: fixed;
+    position: relative;
 }
 
 
 .sidebar{
+    position: fixed;
     background: #000;
     color: #fff;
     height: 100vh;
@@ -53,6 +54,10 @@
 /*---------side bar style finsh----------*/
 
 section{
-    position: relative;
+    position: absolute;
     left: 70px;
+}
+
+a{
+    text-decoration: none;
 }

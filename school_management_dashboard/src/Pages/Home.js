@@ -8,7 +8,7 @@ const Home = () => {
     const skip = 0
 
     const dispatch = useDispatch()
-    const { users, loading, error } = useSelector((state) => state.users)
+    const { users, loading, error } = useSelector((store) => store.users)
 
     useEffect(() => {
         dispatch(fetchUserdata({ skip: '0', limit: '100' }))

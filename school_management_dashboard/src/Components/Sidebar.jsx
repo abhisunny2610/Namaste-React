@@ -44,18 +44,18 @@ const Sidebar = () => {
 
   return (
     <div className="containers">
-      <div className="sidebar" style={{width: isMenuOpen ? "200px" : "50px"}}>
+      <div className="sidebar" style={{ width: isMenuOpen ? "200px" : "50px" }}>
         <div className="top_section">
-          <h1 style={{display: isMenuOpen ? "block" : "none"}} className='logo'>Logo</h1>
-          <div className="bars" style={{marginLeft: isMenuOpen ? "50px" : "0px"}}>
-            <i className="fa-solid fa-bars" onClick={handleToggle}></i>
+          <h1 style={{ display: isMenuOpen ? "block" : "none" }} className='logo'>Logo</h1>
+          <div className="bars" style={{ marginLeft: isMenuOpen ? "50px" : "0px" }}>
+            {isMenuOpen ? <i class="fa-solid fa-xmark" onClick={handleToggle}></i> : <i className="fa-solid fa-bars" onClick={handleToggle}></i> }
           </div>
         </div>
         {
           menuItems.map((items, index) => {
-           return <NavLink to={items.path} key={index} className="link" activeclassname="active" title={items.name}>
+            return <NavLink to={items.path} key={index} className="link" activeclassname="active" title={items.name}>
               <div className="icon">{items.icon}</div>
-              <div style={{display: isMenuOpen ? "block": "none"}} className="link_text">{items.name}</div>
+              <div style={{ display: isMenuOpen ? "block" : "none" }} className="link_text">{items.name}</div>
             </NavLink>
           })
         }
