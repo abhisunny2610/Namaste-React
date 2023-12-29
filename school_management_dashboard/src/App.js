@@ -14,14 +14,16 @@ const AppLayout = () => {
   return (
     <Provider store={store}>
       <Sidebar />
-      <Outlet />
+      <section>
+        <Outlet />
+      </section>
       <Footer />
     </Provider>
   )
 }
 
 const appRouter = createBrowserRouter([{
-    path: "/",
+  path: "/",
   element: <AppLayout />,
   children: [
     {
@@ -45,7 +47,7 @@ const appRouter = createBrowserRouter([{
       element: <Notice />
     }
   ]
-  }])
+}])
 
 function App() {
   return (
