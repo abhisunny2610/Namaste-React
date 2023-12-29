@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserdata } from '../Redux/UserSlice'
+import TotalCountingCard from '../Components/Cards/TotalCountingCard'
 
 const Home = () => {
-
-    const limit = 100
-    const skip = 0
 
     const dispatch = useDispatch()
     const { users, loading, error } = useSelector((store) => store.users)
@@ -13,8 +11,6 @@ const Home = () => {
     useEffect(() => {
         dispatch(fetchUserdata({ skip: '0', limit: '100' }))
     }, [dispatch])
-
-    console.log(users)
 
     if (loading == "loading") {
         return <div>Loading....</div>
@@ -31,6 +27,8 @@ const Home = () => {
                 return <li key={item.id}>{item.firstName}</li>
             })
         } */}
+
+        <TotalCountingCard />
         </>
     )
 }
