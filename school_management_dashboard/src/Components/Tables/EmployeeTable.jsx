@@ -16,10 +16,10 @@ const EmployeeTable = ({ data, columns }) => {
                         <tr key={rowIndex} className='text-center'>
                             <td key={rowIndex}>{row?.id}</td>
                             <td key={rowIndex}>{row?.firstName + " " + row?.lastName}</td>
+                            <td key={rowIndex}>{row?.company?.title}</td>
                             <td key={rowIndex}>{row?.gender}</td>
                             <td key={rowIndex}>{row?.phone}</td>
                             <td key={rowIndex}>{row?.address?.city}</td>
-                            <td key={rowIndex}>{row?.university}</td>
                             <td><button className='btn btn-sm btn-success'>View</button></td>
                         </tr>
                     ))}

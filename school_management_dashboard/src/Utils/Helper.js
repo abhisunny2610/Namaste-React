@@ -20,3 +20,14 @@ export const StudentColumns = [
     { key: 'university', title: 'UNIVERSITY' },
     {key: 'actions', title: 'ACTIONS'}
 ]
+
+
+export const EmployeeColumns = [
+    { key: 'id', title: 'ID' },
+    { key: 'FirstName', title: 'NAME' },
+    { key: 'title', title: 'TITLE' },
+    { key: 'gender', title: 'GENDER' },
+    { key: 'phone', title: 'PHONE' },
+    { key: 'address', title: 'ADDRESS' },
+    {key: 'actions', title: 'ACTIONS'}
+]

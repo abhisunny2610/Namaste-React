@@ -13,7 +13,7 @@ const Teacher = () => {
     const { users, loading, error } = useSelector((store) => store.users)
 
     useEffect(() => {
-        dispatch(fetchUserdata({ skip: '30', limit: '50' }))
+        dispatch(fetchUserdata({ skip: '30', limit: '70' }))
     }, [dispatch])
 
     if (loading == "loading") {

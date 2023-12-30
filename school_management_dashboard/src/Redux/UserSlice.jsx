@@ -17,7 +17,9 @@ export const fetchUserdata = createAsyncThunk("User/data", async (args, thunkAPI
 const UserSlice = createSlice({
     name: "userSlice",
     initialState: {
-        users: [],
+        teachers: [],
+        students: [],
+        employees: [],
         loading: 'idle',
         error: null,
     },
