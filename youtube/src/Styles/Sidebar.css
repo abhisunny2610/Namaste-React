@@ -1,5 +1,5 @@
 .sidebar{
-    /* background-color: aqua; */
+    background-color: white;
     padding: 10px 5px;
     width: fit-content;
     height: 100vh;
@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease;
     
     > .bars i{
         font-size: 22px;
@@ -16,7 +16,7 @@
     
     > .link-group{
         > a{
-            color: rgb(41, 39, 39);
+            color: black;
             margin-bottom: 20px;
             font-size: 12px;
             text-decoration: none;
@@ -25,7 +25,7 @@
             flex-direction: column;
 
             > i{
-                font-size: 22px;
+                font-size: 20px;
                 margin-bottom: 5px;
             }
         }
@@ -35,14 +35,19 @@
 
 
 .open{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: all 0.5s ease;
     z-index: 999;
-    padding: 0px 5px;
+    padding: 0px 10px;
+    width: 200px;
     gap: 0px;
+    align-items: start;
+
     > .link-group{
         > a{
             flex-direction: row;
             gap: 10px;
-            font-size: 16px;
+            font-size: 14px;
             align-items: center;
 
             > i{

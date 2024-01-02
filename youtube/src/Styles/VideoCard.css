@@ -1,0 +1,28 @@
+.video-card {
+    box-sizing: border-box;
+    width: 351px;
+    /* border: 1px solid black; */
+
+    > .thumbnail img{
+        width: 350px;
+        border-radius: 10px;
+    }
+
+    >.about {
+
+        padding: 10px 0px;
+
+        >.channel-profile img{
+            border-radius: 50%;
+        }
+
+        > .info{
+            > p{
+                font-size: 14px;
+                margin: 0px;
+                color: rgb(92, 91, 91);
+            }
+        }
+    }
+
+}

@@ -14,7 +14,9 @@ const Applayout = () => {
   return (
     <Provider store={store}>
       <Sidebar />
+      <div className='sections'>
       <Outlet />
+      </div>
     </Provider>
   )
 }

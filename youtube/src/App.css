@@ -3,3 +3,9 @@
     padding: 0px;
     margin: 0px;
 }
+
+.sections{
+    position: absolute;
+    left: 100px;
+    overflow-x: hidden;
+}

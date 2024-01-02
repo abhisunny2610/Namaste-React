@@ -1,8 +1,12 @@
 import React from 'react'
+import VideoCard from '../Components/VideoCard'
+import VideoSection from '../Components/VideoSection'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+    <VideoSection />
+    </>
   )
 }
 
