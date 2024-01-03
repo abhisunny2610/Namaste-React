@@ -37,7 +37,7 @@
 .open{
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     transition: all 0.5s ease;
-    z-index: 999;
+    z-index: 9999;
     padding: 0px 10px;
     width: 200px;
     gap: 0px;

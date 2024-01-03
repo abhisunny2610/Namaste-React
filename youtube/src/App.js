@@ -7,29 +7,40 @@ import Shorts from './Pages/Shorts';
 import Subscription from './Pages/Subscription';
 import You from './Pages/You';
 import Downloads from './Pages/Downloads';
-import { Provider } from 'react-redux';
-import store from './Redux/store';
+// import { Provider, useDispatch } from 'react-redux';
+// import store from './Redux/store';
+import Header from './Components/Header';
+// import { useEffect } from 'react';
+// import { fetchVideos } from './Redux/VideoSlice';
 
 const Applayout = () => {
+
+  // const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(fetchVideos())
+  // }, [dispatch])
+
   return (
-    <Provider store={store}>
+    <>
       <Sidebar />
       <div className='sections'>
-      <Outlet />
+        <Header />
+        <Outlet />
       </div>
-    </Provider>
+    </>
   )
 }
 
 const appRouter = createBrowserRouter([
   {
     path: '/',
-    element : <Applayout />,
+    element: <Applayout />,
     errorElement: <Error />,
-    children:[
+    children: [
       {
-        path : '/',
-        element : <Home />
+        path: '/',
+        element: <Home />
       },
       {
         path: 'shorts',
@@ -37,7 +48,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: 'subscription',
-        element : <Subscription />
+        element: <Subscription />
       },
       {
         path: 'you',
@@ -54,7 +65,7 @@ const appRouter = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={appRouter}/>
+      <RouterProvider router={appRouter} />
     </div>
   );
 }
