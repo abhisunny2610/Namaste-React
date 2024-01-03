@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import profile from '../Styles/gymbackground.jpg'
 import { formatViews } from '../helper'
 import { useSearchParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchVideoById } from '../Redux/VideoSlice'
 
 const Watch = () => {
 
-    const search = useSearchParams()
+    const dispatch = useDispatch()
+    const [search] = useSearchParams()
+    const videoId = search.get('v')
+
+    const {selectedVideo , status}= useSelector((state) => state.videos)
+
+    useEffect(()=> {
+        dispatch(fetchVideoById(videoId))
+    }, [dispatch, videoId])
+
+    console.log(selectedVideo)
+
+    if (status === "loading"){
+        return <div>Loading...</div>
+    }
+
+    if (status === "failed"){
+        return <div>Error loading video:</div>
+    }
 
     return (
         <div className='watch px-4 bg-light'>
-            <iframe width="700" height="350" src={"https://www.youtube.com/embed/" + search.get("v")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            <div className="name mt-2">
+            <iframe width="700" height="350" src={"https://www.youtube.com/embed/" + videoId} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            {/* <div className="name mt-2">
                 <h4 className='text-dark'>{videoDetails?.snippet?.title}</h4>
             </div>
             <div className="details">
@@ -28,7 +48,7 @@ const Watch = () => {
                     <button className='btn dislike'><i class="fa-regular fa-thumbs-down fa-flip-horizontal"></i></button>
                     <button className='btn share'><i class="fa-solid fa-share"></i> share</button>
                 </div>
-            </div>
+            </div> */}
 
 
         </div>

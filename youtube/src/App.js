@@ -7,28 +7,21 @@ import Shorts from './Pages/Shorts';
 import Subscription from './Pages/Subscription';
 import You from './Pages/You';
 import Downloads from './Pages/Downloads';
-// import { Provider, useDispatch } from 'react-redux';
-// import store from './Redux/store';
 import Header from './Components/Header';
-// import { useEffect } from 'react';
-// import { fetchVideos } from './Redux/VideoSlice';
+import Watch from './Pages/Watch'
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 const Applayout = () => {
 
-  // const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(fetchVideos())
-  // }, [dispatch])
-
   return (
-    <>
+    <Provider store={store}>
       <Sidebar />
       <div className='sections'>
         <Header />
         <Outlet />
       </div>
-    </>
+    </Provider>
   )
 }
 
@@ -57,6 +50,10 @@ const appRouter = createBrowserRouter([
       {
         path: 'downloads',
         element: <Downloads />
+      },
+      {
+        path: 'watch',
+        element: <Watch />
       }
     ]
   }

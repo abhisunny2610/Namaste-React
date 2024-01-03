@@ -16,7 +16,7 @@ const Header = () => {
 
                 <div className="search-bar">
                     <input type="text" placeholder='Search'/>
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button><i className="fa-solid fa-magnifying-glass"></i></button>
                 </div>
 
                 <div className="profile">
