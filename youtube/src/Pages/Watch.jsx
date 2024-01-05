@@ -15,9 +15,7 @@ const Watch = () => {
 
     useEffect(()=> {
         dispatch(fetchVideoById(videoId))
-    }, [dispatch, videoId])
-
-    console.log(selectedVideo)
+    }, [dispatch, search])
 
     if (status === "loading"){
         return <div>Loading...</div>
@@ -25,32 +23,30 @@ const Watch = () => {
 
     if (status === "failed"){
         return <div>Error loading video:</div>
-    }
+    } 
 
     return (
         <div className='watch px-4 bg-light'>
             <iframe width="700" height="350" src={"https://www.youtube.com/embed/" + videoId} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            {/* <div className="name mt-2">
-                <h4 className='text-dark'>{videoDetails?.snippet?.title}</h4>
+            <div className="name mt-2">
+                <h4 className='text-dark'>{selectedVideo?.snippet?.title}</h4>
             </div>
             <div className="details">
                 <div className="channel">
-                    <img src={profile} alt="" />
+                    <img src={selectedVideo?.snippet?.thumbnails.medium.url} alt="" />
                     <div className='div'>
-                        <p className='channel-name fw-bold'>{videoDetails?.snippet?.channelTitle}</p>
-                        <p className='views'>{formatViews(videoDetails?.statistics?.viewCount)}</p>
+                        <p className='channel-name fw-bold'>{selectedVideo?.snippet?.channelTitle}</p>
+                        <p className='views'>{formatViews(selectedVideo?.statistics?.viewCount)}</p>
                     </div>
                     <button className='btn subscribw'>Subscribe</button>
                 </div>
 
                 <div className="watch-buttons d-flex align-items-center">
-                    <button className='btn like'><i class="fa-regular fa-thumbs-up"></i> 483</button>
-                    <button className='btn dislike'><i class="fa-regular fa-thumbs-down fa-flip-horizontal"></i></button>
-                    <button className='btn share'><i class="fa-solid fa-share"></i> share</button>
+                    <button className='btn like'><i className="fa-regular fa-thumbs-up"></i> 483</button>
+                    <button className='btn dislike'><i className="fa-regular fa-thumbs-down fa-flip-horizontal"></i></button>
+                    <button className='btn share'><i className="fa-solid fa-share"></i> share</button>
                 </div>
-            </div> */}
-
-
+            </div>
         </div>
     )
 }

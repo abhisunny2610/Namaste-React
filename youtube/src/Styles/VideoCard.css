@@ -30,3 +30,76 @@
 .videos-container, .watch{
     margin-top: 130px;
 }
+
+.watch {
+    width: 750px;
+
+    > iframe{
+        border-radius: 10px;
+    }
+
+    >.name {
+        >h4 {
+            font-size: 18px;
+        }
+    }
+
+    >.details {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        >.channel {
+
+            display: flex;
+            align-items: center;
+
+            >img {
+                background-color: black;
+                border-radius: 50px;
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
+
+            >.div {
+                >p {
+                    margin: 0px;
+                    font-size: 14px;
+                }
+            }
+
+            >button {
+                background-color: black;
+                color: white;
+                border-radius: 50px;
+                margin-left: 30px;
+            }
+        }
+
+
+        > .watch-buttons{
+            
+            > button{
+                background-color: var(--grey);
+            }
+
+            > .like{
+                border-radius: 50px 0px 0px 50px ;
+            }
+
+            > .dislike{
+                border-radius: 0px 50px 50px 0px;
+                border-left: 2px solid lightgray;
+            }
+            
+            > .share{
+                border-radius: 50px;
+                margin-left: 10px;
+            }
+        }
+
+    }
+}

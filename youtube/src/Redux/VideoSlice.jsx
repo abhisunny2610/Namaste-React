@@ -6,7 +6,7 @@ export const fetchVideos = createAsyncThunk('videoSlice/fetchVideos', async (arg
     try {
         const response = await fetch(youtube_video_api)
         const json = await response.json()
-        const data = json
+        const data = json.items
         return data
     } catch (error) {
         throw new Error("Failed to Fatch Data")
@@ -14,12 +14,12 @@ export const fetchVideos = createAsyncThunk('videoSlice/fetchVideos', async (arg
 })
 
 export const fetchVideoById = createAsyncThunk('videoSlice/fetchVideoById', async (args, thunkAPI) => {
-    const { id} = args
+    const id = args
     try {
         const response = await fetch(youtube_video_by_id + id + "&key=" + apikey)
         const json = await response.json()
-        const data = json
-        return data
+        const data = json?.items
+        return (data[0])
     } catch (error) {
         throw new Error("Failed to Fetch Data")
     }
