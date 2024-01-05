@@ -8,13 +8,16 @@
     --fs-16: 16px;
     --fs-18: 18px;
     --fs-14: 14px;
+    --fs-12: 12px;
+    --fs-10: 10px;
+    --fs-8: 8px;
     --orange: rgb(253, 173, 23);
     --gray: rgb(247, 245, 245);
     --gray-dark: rgb(230, 230, 230);
     --blue: rgb(38, 14, 95);
 }
 
-.bg-orange{
+.bg-orange {
     background-color: var(--orange);
 }
 
@@ -42,7 +45,7 @@ section {
 
 /* -------------header style style---------*/
 
-.product-header{
+.product-header {
     padding: 10px 10px;
 }
 
@@ -85,7 +88,7 @@ section {
                 font-size: 16px;
                 position: relative;
 
-                > span{
+                >span {
                     background-color: var(--orange);
                     border-radius: 50px;
                     position: absolute;
@@ -114,6 +117,38 @@ section {
         }
     }
 }
+
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* @media (max-width: 768px){
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+      }
+    
+      .navbar-links.open {
+        display: flex;
+      }
+    
+      .navbar-toggle {
+        display: block;
+      }
+} */
+
+
 
 /* -------------header style finish---------*/
 
@@ -174,28 +209,36 @@ section {
         }
     }
 
-    >.coupon {
-        cursor: context-menu;
-        border-bottom: 1px solid black;
-        /* position: fixed; */
+    
+}
 
-        >p {
-            font-size: var(--fs-16);
-            font-weight: 600;
+.coupon {
+    cursor: context-menu;
+    border-bottom: 1px solid black;
+    /* position: fixed; */
 
-            >span {
-                font-weight: 300;
-            }
+    >p {
+        font-size: var(--fs-16);
+        font-weight: 600;
 
-            >.details {
-                font-size: 12px;
-                margin-left: 5px;
-            }
+        >span {
+            font-weight: 300;
+        }
+
+        >.details {
+            font-size: 12px;
+            margin-left: 5px;
         }
     }
 }
 
-/* -------------Home page style finish---------*/
+
+.carousel img {
+    width: 90%;
+    height: 360px;
+    transition: all 0.5s ease-in;
+    overflow-x: scroll;
+}
 
 /* -------------product card style start---------*/
 
@@ -205,28 +248,152 @@ section {
     font-family: var(--opensans-font);
     transition: transform 0.3s ease-in-out;
 
-    >img {
-        width: 249px;
-        height: 260px;
-    }
+}
 
-    >.description {
-        font-size: var(--fs-14);
-        padding: 0px 10px;
-        letter-spacing: 0.5px;
-    }
+.product-card img {
+    width: 249px;
+    height: 260px;
+}
 
-    >.price {
-        padding: 0px 10px;
-        font-size: var(--fs-16);
-    }
+.product-card .description {
+    font-size: var(--fs-16);
+    padding: 0px 10px;
+    letter-spacing: 0.5px;
+}
+
+.product-card .price {
+    padding: 0px 10px;
+    font-size: 20px;
+}
+
+.product-card .price span{
+    font-size: var(--fs-16);
 }
 
 .product-card:hover {
     transform: scale(1.02);
 }
 
+
+
 /* -------------product card style finish---------*/
+
+@media (max-width: 768px){
+    .coupon {
+        >p {
+            font-size: var(--fs-14);
+            font-weight: 600;
+
+            >.details {
+                font-size: 10px;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .carousel img {
+        width: 78%;
+        height: 230px;
+        transition: all 0.5s ease-in;
+        overflow-x: scroll;
+    }
+
+    .product-card {
+        width: 200px;
+    }
+    
+    .product-card img {
+        width: 199px;
+        height: 180px;
+    }
+    
+    .product-card .description {
+        font-size: var(--fs-12);
+        padding: 0px 10px;
+        letter-spacing: 0.5px;
+    }
+    
+    .product-card .price {
+        padding: 0px 10px;
+        font-size: var(--fs-16);
+    }
+
+    
+}
+
+
+
+@media (max-width : 550px){
+    .coupon {
+        >p {
+            font-size: 11px;
+            font-weight: 600;
+
+            >.details {
+                font-size: 8px;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .carousel img {
+        width: 73%;
+        height: 180px;
+        transition: all 0.5s ease-in;
+        overflow-x: scroll;
+    }
+
+    .product-card {
+        width: 200px;
+    }
+    
+    .product-card img {
+        width: 199px;
+        height: 180px;
+    }
+    
+    .product-card .description {
+        font-size: var(--fs-12);
+        padding: 0px 10px;
+        letter-spacing: 0.5px;
+    }
+    
+    .product-card .price {
+        padding: 0px 10px;
+        font-size: var(--fs-16);
+    }
+
+}
+
+
+@media (max-width: 500px){
+    .product-card {
+        width: 160px;
+    }
+    
+    .product-card img {
+        width: 159px;
+        height: 180px;
+    }
+    
+    .product-card .description {
+        font-size: var(--fs-12);
+        padding: 0px 10px;
+        letter-spacing: 0.5px;
+    }
+    
+    .product-card .price {
+        padding: 0px 10px;
+        font-size: var(--fs-16);
+    }
+}
+
+
+
+
+/* -------------Home page style finish---------*/
+
+
 
 /* -------------footer style start---------*/
 
@@ -363,11 +530,11 @@ section {
             color: var(--orange);
         }
 
-       
 
-        > a{
 
-              >button {
+        >a {
+
+            >button {
                 width: 100%;
                 border-radius: 50px;
                 margin-top: 5px;
@@ -380,7 +547,7 @@ section {
             >.cart-button {
                 background-color: rgb(241, 213, 30);
             }
-    
+
             >.buy-button {
                 background-color: var(--orange);
             }
@@ -398,26 +565,26 @@ section {
     font-family: var(--opensans-font);
     height: 70vh;
 
-    > .heading {
-        
-        > h1 {
+    >.heading {
+
+        >h1 {
             font-size: 50px;
             font-weight: bolder;
             color: var(--black);
         }
 
-        > .shop{
+        >.shop {
             background-color: var(--blue);
             color: var(--gray);
             padding: 10px;
             border-radius: 10px;
         }
 
-        > h4 {
-            
+        >h4 {
+
             color: var(--black);
-            
-            > span{
+
+            >span {
                 color: var(--orange);
                 font-weight: bold;
             }
@@ -428,11 +595,4 @@ section {
 
 /* -------------about component style finish---------*/
 
-  
 
-.carousel img{
-    width: 90%;
-    height: 360px;
-    transition: all 0.5s ease-in;
-    overflow-x: scroll;
-}

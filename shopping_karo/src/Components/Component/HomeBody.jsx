@@ -31,7 +31,7 @@ const HomeBody = () => {
 
     return (
         <div className='home-body mt-2'>
-            <div className="category d-flex justify-content-between align-items-center">
+            {/* <div className="category d-flex justify-content-between align-items-center">
                 <div className="buttons">
 
                     {products.map((curElem, index) => {
@@ -43,7 +43,7 @@ const HomeBody = () => {
                     <input type="text" placeholder='Search Product' />
                     <button><i className="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-            </div>
+            </div> */}
 
             <div className="coupon text-center mt-3">
                 <p>20% OFF ON EVERY PRODUCT <span>WITH CODE</span> SOGET20 <span className='details'>VIEW DETAILS</span></p>
