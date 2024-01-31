@@ -27,12 +27,12 @@
 
 }
 
-.videos-container, .watch{
+.videos-container, .watch, .comment-section{
     margin-top: 130px;
 }
 
 .watch {
-    width: 750px;
+    width: 700px;
 
     > iframe{
         border-radius: 10px;
@@ -102,4 +102,15 @@
         }
 
     }
+}
+
+
+.comment-section{
+    width: calc(87vw - 700px);
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
+.co{
+    width: 100%;
 }
