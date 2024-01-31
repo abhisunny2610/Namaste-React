@@ -14,6 +14,7 @@ const useSingleRestaurant = (resId) => {
         const response = await fetch(swiggy_menu_api_URL + resId)
 
         const json = await response.json()
+        console.log("json", json)
 
         // set restaurantData
         const restaurantData = json?.data?.cards?.map(x => x.card)?.find(x => x && x.card['@type'] === RESTAURANT_TYPE_KEY)?.card?.info || null;

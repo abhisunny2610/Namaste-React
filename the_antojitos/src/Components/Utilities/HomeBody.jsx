@@ -37,7 +37,7 @@ const HomeBody = () => {
   async function fetchAPI() {
     const response = await fetch(swiggy_api_URL)
     const json = await response.json();
-    const data = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    const data = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setFilterRest(data)
     setAllRest(data)
   }

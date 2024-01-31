@@ -15,11 +15,11 @@ export const shimmer_menu_card_unit = 4
 
 // swiggy api to get restaurant data with corsproxy
 export const swiggy_api_URL =
-  "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.877387&lng=75.763626&page_type=DESKTOP_WEB_LISTING";
+"https://foodfire.onrender.com/api/restaurants?lat=26.877387&lng=75.763626&page_type=DESKTOP_WEB_LISTING";
 
 // Swiggy API to get Restaurant Menu data with corsproxy
 export const swiggy_menu_api_URL =
-  "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.877387&lng=75.763626&&submitAction=ENTER&restaurantId=";
+"https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=26.877387&lng=75.763626&&submitAction=ENTER&restaurantId=";
 
 // menu items api card type key
 export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
